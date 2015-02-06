@@ -12,4 +12,7 @@ github_username:  vitto
 
 # Build settings
 markdown: kramdown
-exclude: [ frontsize ]
+exclude: [ README.md, css/empty ]
+timezone: Europe/Rome
+encoding: utf8
+keep_files: [ css/frontsize-3.0.0.min.css ]

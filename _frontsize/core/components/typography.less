@@ -1,0 +1,188 @@
+.setLineHeightScaling(
+    @selector            : body,
+    @hdFull              : @font-line-height,
+    @hdReady             : @font-line-height,
+    @tabletLandscape     : @font-line-height,
+    @tabletPortrait      : @font-line-height,
+    @smartphoneLandscape : @font-line-height,
+    @smartphonePortrait  : @font-line-height
+    ) {
+
+    ._setLineHeightScaling(@from-smartphone-portrait,  @selector, @smartphonePortrait,  @use-smartphone-portrait);
+    ._setLineHeightScaling(@from-smartphone-landscape, @selector, @smartphoneLandscape, @use-smartphone-landscape);
+    ._setLineHeightScaling(@from-tablet-portrait,      @selector, @tabletPortrait,      @use-tablet-portrait);
+    ._setLineHeightScaling(@from-tablet-landscape,     @selector, @tabletLandscape,     @use-tablet-landscape);
+    ._setLineHeightScaling(@from-hd-ready,             @selector, @hdReady,             @use-hd-ready);
+    ._setLineHeightScaling(@from-hd-full,              @selector, @hdFull,              @use-hd-full);
+}
+
+._setLineHeightScaling(@viewport, @selector, @lineHeight, @viewportEnabled) when (@viewportEnabled = true) {
+    @media @viewport {
+        @{selector} {
+            line-height : @lineHeight;
+        }
+    }
+}
+
+.setFontScaling(
+    @selector            ,
+    @hdFull              : (@font-size + (@font-size/2)),
+    @hdReady             : (@font-size + (@font-size/4)),
+    @tabletLandscape     : @font-size,
+    @tabletPortrait      : @font-size,
+    @smartphoneLandscape : @font-size,
+    @smartphonePortrait  : @font-size
+    ) {
+    ._setFontScaling(@from-smartphone-portrait,  @selector, @smartphonePortrait,  @use-smartphone-portrait);
+    ._setFontScaling(@from-smartphone-landscape, @selector, @smartphoneLandscape, @use-smartphone-landscape);
+    ._setFontScaling(@from-tablet-portrait,      @selector, @tabletPortrait,      @use-tablet-portrait);
+    ._setFontScaling(@from-tablet-landscape,     @selector, @tabletLandscape,     @use-tablet-landscape);
+    ._setFontScaling(@from-hd-ready,             @selector, @hdReady,             @use-hd-ready);
+    ._setFontScaling(@from-hd-full,              @selector, @hdFull,              @use-hd-full);
+}
+
+._setFontScaling(@viewport, @selector, @fontSize, @viewportEnabled) when (@viewportEnabled = true) {
+    @media @viewport {
+        @{selector} {
+            font-size : @fontSize;
+        }
+    }
+}
+
+.addMultipleFontsRule(
+    @selector             : with-small-fonts,
+    @fontFamilyHd         : @font-small,
+    @fontSizeHd           : 14px,
+    @fontFamilyTablet     : @font-small,
+    @fontSizeTablet       : 14px,
+    @fontFamilySmartphone : @font-small,
+    @fontSizeSmartphone   : 12px,
+    @antialias            : subpixel-antialiased
+    ) {
+
+    ._addMultipleFontsRule(@from-smartphone-portrait, @selector, @fontFamilySmartphone, @fontSizeSmartphone, @use-smartphone-portrait);
+    ._addMultipleFontsRule(@from-tablet-portrait,     @selector, @fontFamilyTablet,     @fontSizeTablet,     @use-tablet-portrait);
+    ._addMultipleFontsRule(@from-hd-ready,            @selector, @fontFamilyHd,         @fontSizeHd,         @use-hd-ready);
+    .font-smoothing(@antialias);
+}
+
+._addMultipleFontsRule(@viewport, @selector, @fontFamily, @fontSize, @viewportEnabled) when (@viewportEnabled = true) {
+    @media @viewport {
+        .@{selector} {
+            .property(font-family, @fontFamily);
+            .property(font-size, @fontSize);
+        }
+    }
+}
+
+
+.setHeadingFont(
+    @hdFullMultiplier              : 1.5,
+    @hdReadyMultiplier             : 1.25,
+    @tabletLandscapeMultiplier     : 1,
+    @tabletPortraitMultiplier      : 1,
+    @smartphoneLandscapeMultiplier : 1,
+    @smartphonePortraitMultiplier  : 1,
+    @marginBottom                  : unit((@global-step / 4), px)
+    ) {
+
+    ._setHeadingFont(@from-smartphone-portrait,  @smartphonePortraitMultiplier,  @marginBottom, @use-smartphone-portrait);
+    ._setHeadingFont(@from-smartphone-landscape, @smartphoneLandscapeMultiplier, @marginBottom, @use-smartphone-landscape);
+    ._setHeadingFont(@from-tablet-portrait,      @tabletPortraitMultiplier,      @marginBottom, @use-tablet-portrait);
+    ._setHeadingFont(@from-tablet-landscape,     @tabletLandscapeMultiplier,     @marginBottom, @use-tablet-landscape);
+    ._setHeadingFont(@from-hd-ready,             @hdReadyMultiplier,             @marginBottom, @use-hd-ready);
+    ._setHeadingFont(@from-hd-full,              @hdFullMultiplier,              @marginBottom, @use-hd-full);
+}
+
+._setHeadingFont(@viewport, @multiplier, @margin, @viewportEnabled) when (@viewportEnabled = true) {
+    @media @viewport {
+        h1 {
+            font-size : round(unit((@h1 * @multiplier), px));
+        }
+        h2 {
+            font-size : round(unit((@h2 * @multiplier), px));
+        }
+        h3 {
+            font-size : round(unit((@h3 * @multiplier), px));
+        }
+        h4 {
+            font-size : round(unit((@h4 * @multiplier), px));
+        }
+        h5 {
+            font-size : round(unit((@h5 * @multiplier), px));
+        }
+        h6 {
+            font-size : round(unit((@h6 * @multiplier), px));
+        }
+        h1, h2, h3, h4, h5, h6 {
+            margin-bottom : round(unit((@margin * @multiplier), px));
+        }
+    }
+}
+
+.addFontRule(
+    @selector                    ,
+    @fontFamily                  : @font-default,
+    @hdFullFontSize              : @font-size,
+    @hdReadyFontSize             : @hdFullFontSize,
+    @tabletLandscapeFontSize     : @hdReadyFontSize,
+    @tabletPortraitFontSize      : @tabletLandscapeFontSize,
+    @smartphoneLandscapeFontSize : @tabletPortraitFontSize,
+    @smartphonePortraitFontSize  : @smartphoneLandscapeFontSize,
+    @lineHeightMultiplier        : false,
+    @antialias                   : false
+    ) {
+    // Media queries for selectors active from the smaller resolution to a specific one
+    .@{selector} {
+        font-family : @fontFamily;
+        .property(line-height, @lineHeightMultiplier);
+        .font-smoothing(@antialias);
+    }
+
+    ._addFontRule(@from-hd-full,              @selector, @hdFullFontSize,              @use-hd-full);
+    ._addFontRule(@till-hd-full,              @selector, @hdReadyFontSize,             @use-hd-ready);
+    ._addFontRule(@till-hd-ready,             @selector, @tabletLandscapeFontSize,     @use-tablet-landscape);
+    ._addFontRule(@till-tablet-landscape,     @selector, @tabletPortraitFontSize,      @use-tablet-portrait);
+    ._addFontRule(@till-tablet-portrait,      @selector, @smartphoneLandscapeFontSize, @use-smartphone-landscape);
+    ._addFontRule(@till-smartphone-landscape, @selector, @smartphonePortraitFontSize,  @use-smartphone-portrait);
+}
+
+._addFontRule(@viewport, @selector, @fontSize, @viewportEnabled) when (@viewportEnabled = true) {
+    @media @viewport {
+        .@{selector} {
+            font-size : @fontSize !important;
+        }
+    }
+}
+
+.setViewportsFontSize(
+    @hdFullFontSize              : 16px,
+    @hdReadyFontSize             : 16px,
+    @tabletLandscapeFontSize     : 16px,
+    @tabletPortraitFontSize      : 16px,
+    @smartphoneLandscapeFontSize : 16px,
+    @smartphonePortraitFontSize  : 16px,
+    @lineHeightMultiplier        : false,
+    @useImportant                : true
+    ) {
+
+    .property(line-height, @lineHeightMultiplier);
+
+    ._setViewportsFontSize(@from-hd-full,              @hdFullFontSize,              @useImportant, @use-hd-full);
+    ._setViewportsFontSize(@till-hd-full,              @hdReadyFontSize,             @useImportant, @use-hd-ready);
+    ._setViewportsFontSize(@till-hd-ready,             @tabletLandscapeFontSize,     @useImportant, @use-tablet-landscape);
+    ._setViewportsFontSize(@till-tablet-landscape,     @tabletPortraitFontSize,      @useImportant, @use-tablet-portrait);
+    ._setViewportsFontSize(@till-tablet-portrait,      @smartphoneLandscapeFontSize, @useImportant, @use-smartphone-landscape);
+    ._setViewportsFontSize(@till-smartphone-landscape, @smartphonePortraitFontSize,  @useImportant, @use-smartphone-portrait);
+
+}
+
+._setViewportsFontSize(@viewport, @fontSize, @useImportant, @viewportEnabled) when (@viewportEnabled = true) and (@useImportant = true) {
+    @media @viewport {
+        font-size : @fontSize !important;
+    }
+}._setViewportsFontSize(@viewport, @fontSize, @useImportant, @viewportEnabled) when (@viewportEnabled = true) and not (@useImportant = true) {
+    @media @viewport {
+        font-size : @fontSize;
+    }
+}

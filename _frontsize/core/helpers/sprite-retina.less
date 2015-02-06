@@ -1,0 +1,19 @@
+.spriteRetina(
+    @defaultImage  ,
+    @retinaImage   ,
+    @width         : @spriteLastWidth,
+    @height        : @spriteLastHeight,
+    @imageWidth    ,
+    @imageHeight   ,
+    @path          : ''
+    ) when (@use-root-path = false) {
+    .sprite(@defaultImage, @width, @height, @imageWidth @imageHeight, @path);
+    @media @display-retina {
+        .sprite(@retinaImage, @width, @height, @imageWidth @imageHeight, @path, false);
+    }
+}.spriteRetina(@defaultImage, @retinaImage, @width, @height:@width, @imageWidth, @imageHeight, @path:@path-img) when (@use-root-path = true) {
+    .sprite(@defaultImage, @width, @height, @imageWidth @imageHeight, @path);
+    @media @display-retina {
+        .sprite(@retinaImage, @width, @height, @imageWidth @imageHeight, @path, false);
+    }
+}
