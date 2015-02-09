@@ -12,7 +12,7 @@
 @font-small-size : 12px;
 
 // Fonts families global vars
-@font-sans      : 'helvetica neue', helvetica, arial, sans-serif;
+@font-sans      : 'open sans', 'helvetica neue', helvetica, arial, sans-serif;
 @font-serif     : georgia, 'times new roman', times, serif;
 @font-monospace : menlo, monaco, 'courier new', monospace;
 @font-small     : 'lucida grande', tahoma, verdana, arial, sans-serif;
@@ -21,12 +21,12 @@
 @font-default : @font-sans;
 @font-heading : @font-sans;
 
-@global-step : 24px;
+@global-step : 20px;
 
 @font-line-height : @global-step;
-@font-weight      : 300;
-@font-color       : #898989;
-@body-color       : #FCFCFC;
+@font-weight      : 400;
+@font-color       : #545454;
+@body-color       : #F5F0D6;
 
 // Global padding configuration
 @horizontal-padding : @global-step;
@@ -80,9 +80,14 @@
 
 // Prepends the @root-path var before every URL with .backgroundImage mixin
 @use-root-path : true;
-@root-path : "/css/frontsize-less/themes/@{theme}";
-@path-img  : "@{root-path}/img/";
-@path-font : "@{root-path}/fonts/";
+@root-path : '/css/frontsize-less/themes/@{theme}';
+@path-img  : '@{root-path}/img/';
+@path-font : '@{root-path}/fonts/';
+
+.font('open sans', 'OpenSans-Bold',    700);
+.font('open sans', 'OpenSans-Regular', 400);
+.font('open sans', 'OpenSans-Light',   200);
+
 
 // set font scaling to change the font size depending by different resolutions
 // .setFontScaling(body, 20px, 18px, 16px, 16px, 16px, 16px);
@@ -96,7 +101,7 @@
 // .addFloatGridOffset(12);
 
 // put .addViewportsSteps at the bottom of the configuration
-// .addViewportsSteps(use-steps, 500px, 100px, 50px, 0);
+.addViewportsSteps(limit, 500px, 100px, 50px, 0);
 
 // used for the nav top spacing, set it after global-steps-padding
 // .addPaddingSelector(tiny, 8px, 8px);

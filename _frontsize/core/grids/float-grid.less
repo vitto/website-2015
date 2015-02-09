@@ -14,10 +14,10 @@
         .box-sizing(border-box);
     }
     .@{selector} {
-        padding-top:@vertical-padding;
-        width:100%;
-        overflow:auto;
-        clear:both;
+        display:     block;
+        padding-top: @vertical-padding;
+        overflow:    auto;
+        clear:       both;
     }
     ._checkAutoClear(@hdFullSteps, @hdReadySteps, @tabletLandscapeSteps, @tabletPortraitSteps, @smartphoneLandscapeSteps, @smartphonePortraitSteps, @selector);
 }
@@ -28,18 +28,42 @@
     @tabletLandscapeSteps     : @hdReadySteps,
     @tabletPortraitSteps      : @tabletLandscapeSteps,
     @smartphoneLandscapeSteps : 1,
-    @smartphonePortraitSteps  : 1
+    @smartphonePortraitSteps  : 1,
+    @paddingTop               : false
     ) {
 
-    padding-top:@vertical-padding;
-    width:100%;
-    overflow:auto;
-    clear:both;
+    display:  block;
+    overflow: auto;
+    clear:    both;
+    .property(padding-top, @paddingTop, false);
 
     * {
         .box-sizing(border-box);
     }
-    ._checkAutoClear(@hdFullSteps, @hdReadySteps, @tabletLandscapeSteps, @tabletPortraitSteps, @smartphoneLandscapeSteps, @smartphonePortraitSteps, @selector);
+}
+
+.setFloatGridColumn(
+    @hdFullSteps          : 12,
+    @hdReadySteps         : @hdFullSteps,
+    @tabletLandscapeSteps : @hdFullSteps,
+    @tabletPortraitSteps  : 12,
+    @mobileLandscapeSteps : 12,
+    @mobilePortraitSteps  : 12,
+    @columns              : 12
+    ) {
+
+    ._setFloatGridViewportStep(@only-smartphone-portrait,  @mobilePortraitSteps,  @columns);
+    ._setFloatGridViewportStep(@only-smartphone-landscape, @mobileLandscapeSteps, @columns);
+    ._setFloatGridViewportStep(@only-tablet-portrait,      @tabletPortraitSteps,  @columns);
+    ._setFloatGridViewportStep(@only-tablet-landscape,     @tabletLandscapeSteps, @columns);
+    ._setFloatGridViewportStep(@only-hd-ready,             @hdReadySteps,         @columns);
+    ._setFloatGridViewportStep(@only-hd-full,              @hdFullSteps,          @columns);
+}
+
+._setFloatGridViewportStep(@viewport, @step, @columns:12) {
+    @media @viewport {
+        ._setFloatGridColumnStep(@step, @columns)
+    }
 }
 
 .addFloatGridColumns(
@@ -333,7 +357,7 @@
 }
 
 ._setFloatGridColumnStep(@step, @columns) {
-    width : ((100% * @step)/@columns);
+    width : ((100% * @step) / @columns);
 }
 
 ._setColumnBehavior(@usePosition:true, @float:left, @useBorderBox:true) {

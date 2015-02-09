@@ -12,7 +12,15 @@ body {
     font-weight      : @font-weight;
     line-height      : @font-line-height;
     margin           : 0;
-    padding          : 0;
+
+    .setViewportsPadding(
+        @global-step * 8,
+        @global-step * 4,
+        @global-step,
+        @global-step,
+        @global-step / 2,
+        @global-step / 2
+    );
 
     //.font-smoothing(); // if you want to enable font smoothing (will be applied to webkit only)
 }

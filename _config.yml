@@ -6,13 +6,13 @@ description: > # this means to ignore newlines until "baseurl:"
     a front-end developer who works at ideato srl,
     an italian company which builds awesome websites.
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://vit.to" # the base hostname & protocol for your site
+url: "http://127.0.0.1:4000" # the base hostname & protocol for your site
+theme: "/img/theme/"
 twitter_username: vttrx
 github_username:  vitto
 
 # Build settings
 markdown: kramdown
-exclude: [ README.md, css/empty ]
+exclude: [ README.md, css/empty, fonts/empty, img/empty ]
 timezone: Europe/Rome
-encoding: utf8
-keep_files: [ css/frontsize-3.0.0.min.css ]
+keep_files: [ css, fonts, img ]

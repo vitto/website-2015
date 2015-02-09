@@ -42,17 +42,17 @@
     "main" : "compile.less",
     "devDependencies" : {
 
-        "matchdep"   : "*",
+        "matchdep"   : "0.3.0",
 
-        "casperjs"   : "*",
-        "phantomjs"  : "*",
+        "casperjs"   : "1.1.0-beta3",
+        "phantomjs"  : "1.9.2",
         "resemblejs" : "*",
         "phantomcss" : "*",
 
         "csslint" : "*",
         "less"    : "*",
 
-        "grunt"                 : "~0.4.1",
+        "grunt"                 : "~0.4.5",
         "grunt-autoprefixer"    : "*",
         "grunt-uncss"           : "*",
         "grunt-contrib-watch"   : "*",
