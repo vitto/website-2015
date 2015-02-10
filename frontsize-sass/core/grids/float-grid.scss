@@ -1,0 +1,460 @@
+
+@mixin addFloatGridContainer(
+    $selector                 : row,
+    $hdFullSteps              : 0,
+    $hdReadySteps             : $hdFullSteps,
+    $tabletLandscapeSteps     : $hdReadySteps,
+    $tabletPortraitSteps      : $tabletLandscapeSteps,
+    $smartphoneLandscapeSteps : 1,
+    $smartphonePortraitSteps  : 1
+    ) {
+
+    .#{$selector},
+    .#{$selector} * {
+        @include box-sizing(border-box);
+    }
+    .#{$selector} {
+        padding-top:$vertical-padding;
+        width:100%;
+        overflow:auto;
+        clear:both;
+    }
+    @include _checkAutoClear($hdFullSteps, $hdReadySteps, $tabletLandscapeSteps, $tabletPortraitSteps, $smartphoneLandscapeSteps, $smartphonePortraitSteps, $selector);
+}
+
+@mixin addFloatGridColumns($hdSteps:12, $tabletSteps:$hdSteps, $smartphoneSteps:$tabletSteps, $hdViewportPrefix:"hd-", $tabletViewportPrefix:"tablet-", $smartphoneViewportPrefix:"smartphone-", $fillFromViewport:"smartphone-landscape", $viewTotalColumns:true, $columnsSeparator:"-of-", $useHdRules:true, $useTabletRules:true, $useSmartphoneRules:true) {
+
+    @media #{$from-smartphone-portrait} {
+        // Smartphone portrait
+        @include _addFloatGridColumnSet($hdViewportPrefix, $hdSteps, $viewTotalColumns, $columnsSeparator);
+        @include _addFloatGridColumnSet($tabletViewportPrefix, $tabletSteps, $viewTotalColumns, $columnsSeparator);
+        @include _addFloatGridColumnSet($smartphoneViewportPrefix, $smartphoneSteps, $viewTotalColumns, $columnsSeparator);
+    }
+
+    @media #{$from-tablet-portrait} {
+        // Tablet portrait
+        @include _addFloatGridColumnSet($smartphoneViewportPrefix, $smartphoneSteps, $viewTotalColumns, $columnsSeparator);
+        @include _addFloatGridColumnSet($hdViewportPrefix, $hdSteps, $viewTotalColumns, $columnsSeparator);
+        @include _addFloatGridColumnSet($tabletViewportPrefix, $tabletSteps, $viewTotalColumns, $columnsSeparator);
+    }
+
+    @media #{$from-hd-ready} {
+        // HD Ready
+        @include _addFloatGridColumnSet($smartphoneViewportPrefix, $smartphoneSteps, $viewTotalColumns, $columnsSeparator);
+        @include _addFloatGridColumnSet($tabletViewportPrefix, $tabletSteps, $viewTotalColumns, $columnsSeparator);
+        @include _addFloatGridColumnSet($hdViewportPrefix, $hdSteps, $viewTotalColumns, $columnsSeparator);
+    }
+
+    @include _addClearRule($only-smartphone, $smartphoneViewportPrefix);
+    @include _addClearRule($only-tablet, $tabletViewportPrefix);
+    @include _addClearRule($only-hd, $hdViewportPrefix);
+
+    @include _addFillToColumnSet($tabletViewportPrefix, $tabletSteps, $fillFromViewport, $viewTotalColumns, $columnsSeparator);
+    @include _addFillToColumnSet($hdViewportPrefix, $hdSteps, $fillFromViewport, $viewTotalColumns, $columnsSeparator);
+    @include _preventSmartphoneColumnSet($smartphoneViewportPrefix, $smartphoneSteps, $viewTotalColumns, $columnsSeparator);
+}
+
+@mixin _addClearRule($rule, $prefix) {
+    @media #{$rule} {
+        .#{$prefix}clear {
+            clear: both;
+        }
+    }
+}
+
+@mixin setFloatGridColumn(
+    $mobilePortraitStep  : 0,
+    $mobileLandscapeStep : 0,
+    $tabletPortraitStep  : 0,
+    $tabletLandscapeStep : 0,
+    $hdReadyStep         : 0,
+    $hdFullStep          : 0,
+    $totalSteps          : 12
+    ) {
+
+    width: 100%;
+
+    @include _setFloatGridColumn($from-smartphone-portrait,  $mobilePortraitStep,  $totalSteps);
+    @include _setFloatGridColumn($from-smartphone-landscape, $mobileLandscapeStep, $totalSteps);
+    @include _setFloatGridColumn($from-tablet-portrait,      $tabletPortraitStep,  $totalSteps);
+    @include _setFloatGridColumn($from-tablet-landscape,     $tabletLandscapeStep, $totalSteps);
+    @include _setFloatGridColumn($from-hd-ready,             $hdReadyStep,         $totalSteps);
+    @include _setFloatGridColumn($from-hd-full,              $hdFullStep,          $totalSteps);
+}
+
+@mixin _setFloatGridColumn($rule, $step, $totalColumns) {
+    @if $step != false or $step != 0 {
+        @media #{$rule} {
+            @include _setFloatGridColumnStep($step, $totalColumns);
+        }
+    }
+}
+
+@mixin addFloatGridOffset(
+    $hdSteps                  : 12,
+    $tabletSteps              : $hdSteps,
+    $smartphoneSteps          : $tabletSteps,
+    $hdViewportPrefix         : "hd-offset-",
+    $tabletViewportPrefix     : "tablet-offset-",
+    $smartphoneViewportPrefix : "smartphone-offset-",
+    $fillFromViewport         : "smartphone-landscape",
+    $viewTotalColumns         : true,
+    $columnsSeparator         : "-of-",
+    $useHdRules               : true,
+    $useTabletRules           : true,
+    $useSmartphoneRules       : true
+    ) {
+
+    @media #{$from-smartphone-portrait} {
+        // Smartphone portrait
+        @include _addColumnMarginOffset($hdViewportPrefix, $hdSteps, $viewTotalColumns, $columnsSeparator);
+        @include _addColumnMarginOffset($tabletViewportPrefix, $tabletSteps, $viewTotalColumns, $columnsSeparator);
+        @include _addColumnMarginOffset($smartphoneViewportPrefix, $smartphoneSteps, $viewTotalColumns, $columnsSeparator);
+
+        .#{$smartphoneViewportPrefix}disabled {
+            margin-left: 0;
+        }
+    }
+
+    @media #{$from-tablet-portrait} {
+        // Tablet portrait
+        @include _addColumnMarginOffset($smartphoneViewportPrefix, $smartphoneSteps, $viewTotalColumns, $columnsSeparator);
+        @include _addColumnMarginOffset($hdViewportPrefix, $hdSteps, $viewTotalColumns, $columnsSeparator);
+        @include _addColumnMarginOffset($tabletViewportPrefix, $tabletSteps, $viewTotalColumns, $columnsSeparator);
+    }
+
+    @media #{$from-hd-ready} {
+        // HD Ready
+        @include _addColumnMarginOffset($smartphoneViewportPrefix, $smartphoneSteps, $viewTotalColumns, $columnsSeparator);
+        @include _addColumnMarginOffset($tabletViewportPrefix, $tabletSteps, $viewTotalColumns, $columnsSeparator);
+        @include _addColumnMarginOffset($hdViewportPrefix, $hdSteps, $viewTotalColumns, $columnsSeparator);
+    }
+
+    @media #{$only-hd} {
+        .#{$hdViewportPrefix}disabled {
+            margin-left: 0;
+        }
+    }
+
+    @media #{$only-tablet} {
+        .#{$tabletViewportPrefix}disabled {
+            margin-left: 0;
+        }
+    }
+}
+
+@mixin _checkAutoClear(
+    $hdFullSteps,
+    $hdReadySteps,
+    $tabletLandscapeSteps,
+    $tabletPortraitSteps,
+    $smartphoneLandscapeSteps,
+    $smartphonePortraitSteps,
+    $selector
+    ){
+    @if $hdFullSteps > 0 {
+        // Media queries for selectors active from a specific resolution or higher
+        .#{$selector} > * {
+            min-height: 1px;
+            @include _setColumnBehavior();
+            @include _setFloatGridColumnStep(1, $hdFullSteps);
+        }
+
+        @include _checkAutoClearViewport($only-smartphone-portrait,  $smartphonePortraitSteps,  $selector);
+        @include _checkAutoClearViewport($only-smartphone-landscape, $smartphoneLandscapeSteps, $selector);
+        @include _checkAutoClearViewport($only-tablet-portrait,      $tabletPortraitSteps,      $selector);
+        @include _checkAutoClearViewport($only-tablet-landscape,     $tabletLandscapeSteps,     $selector);
+        @include _checkAutoClearViewport($only-hd-ready,             $hdReadySteps,             $selector);
+        @include _checkAutoClearViewport($only-hd-full,              $hdFullSteps,              $selector);
+    }
+}
+
+@mixin _checkAutoClearViewport($viewport, $steps, $selector) {
+    @media #{$viewport} {
+        .#{$selector} > * {
+            @include _setFloatGridColumns($steps);
+        }
+    }
+}
+
+@mixin _addFloatGridColumnSet($prefix, $totalSteps, $viewTotalColumns:true, $columnsSeparator:"-of-") {
+    $startIndex : $totalSteps;
+    @include _loopFloatGridColumnSet($totalSteps, $prefix, $startIndex, $viewTotalColumns, $columnsSeparator, "");
+}
+
+@mixin _addFillToColumnSet($prefix, $totalSteps, $fillViewport:"smartphone-landscape", $viewTotalColumns:true, $columnsSeparator:"-of-") {
+    $startIndex : $totalSteps;
+    @include _loopFloatGridColumnSetFill($prefix, $totalSteps, $fillViewport, $startIndex, $viewTotalColumns, $columnsSeparator);
+}
+
+@mixin _preventSmartphoneColumnSet($prefix:col-, $totalSteps:12, $viewTotalColumns:true, $columnsSeparator:"-of-") {
+    @if $use-smartphone-landscape == true {
+        $startIndex : $totalSteps;
+        @media #{$till-tablet-portrait} {
+            // Smartphone landscape
+            @include _loopSmartphoneColumnSet($prefix, $totalSteps, $startIndex, $viewTotalColumns, $columnsSeparator);
+        }
+    }
+}
+
+@mixin _loopFloatGridColumnSet ($total, $prefix, $index, $viewTotalColumns, $columnsSeparator, $prevRule:""){
+    $nextRule:"";
+    @if $viewTotalColumns == true{
+        @while $index >= 0{
+            @if $index == $total{
+                $nextRule: ".#{$prefix}#{$index}#{$columnsSeparator}#{$total}";
+            }
+            @else{
+                @if $index > 0{
+                    $nextRule: $nextRule + ", .#{$prefix}#{$index}#{$columnsSeparator}#{$total}";
+                }
+            }
+
+            @if $index > 0{
+                .#{$prefix}#{$index}#{$columnsSeparator}#{$total} {
+                    @include _setFloatGridColumnStep($index, $total);
+                }
+            }
+
+            @if $index == 0{
+                #{$nextRule} {
+                    @include _setColumnBehavior();
+                }
+            }
+
+            $index: $index - 1;
+        }
+    }
+    @else{
+        @while $index >= 0{
+            @if $index == $total{
+                $nextRule: ".#{$prefix}#{$index}";
+            }
+            @else {
+                @if $index > 0{
+                    $nextRule: $nextRule + ", .#{$prefix}#{$index}";
+                }
+            }
+
+            @if $index > 0{
+                .#{$prefix}#{$index}#{$columnsSeparator}#{$total} {
+                    @include _setFloatGridColumnStep($index, $total);
+                }
+            }
+
+            @if $index == 0{
+                #{$nextRule} {
+                    @include _setColumnBehavior();
+                }
+            }
+
+            $index: $index - 1;
+        }
+    }
+}
+
+@mixin _addColumnMarginOffset($prefix:col-, $totalSteps:12, $viewTotalColumns:true, $columnsSeparator:"-of-") {
+    $startIndex: $totalSteps;
+    @include _loopColumnMarginOffset($totalSteps, $prefix, $startIndex, $viewTotalColumns, $columnsSeparator, "");
+}
+
+@mixin _loopColumnMarginOffset ($total, $prefix, $index, $viewTotalColumns, $columnsSeparator, $prevRule:""){
+    $nextRule:"";
+    @if $viewTotalColumns == true{
+        @while $index >= 0{
+            @if $index == $total{
+                $nextRule: ".#{$prefix}#{$index}#{$columnsSeparator}#{$total}";
+            }
+            @else{
+                @if $index > 0{
+                    $nextRule: $nextRule + ", .#{$prefix}#{$index}#{$columnsSeparator}#{$total}";
+                }
+            }
+
+            @if $index > 0{
+                .#{$prefix}#{$index}#{$columnsSeparator}#{$total} {
+                    @include _setColumnMarginOffsetStep($index, $total);
+                }
+            }
+
+            @if $index == 0{
+                //
+            }
+
+            $index: $index - 1;
+        }
+    }
+    @else{
+        @while $index >= 0{
+            @if $index == $total{
+                $nextRule: ".#{$prefix}#{$index}";
+            }
+            @else {
+                @if $index > 0{
+                    $nextRule: $nextRule + ", .#{$prefix}#{$index}";
+                }
+            }
+
+            @if $index > 0{
+                .#{$prefix}#{$index} {
+                    @include _setColumnMarginOffsetStep($index, $total);
+                }
+            }
+
+            @if $index == 0{
+                //
+            }
+
+            $index: $index - 1;
+        }
+    }
+}
+
+@mixin _setColumnMarginOffsetStep($step, $columns) {
+    margin-left:((100% * $step)/$columns);
+}
+
+@mixin _loopSmartphoneColumnSet($prefix, $total, $index, $viewTotalColumns, $columnsSeparator){
+    @while $index >= 0{
+         @if $index > 0 and $viewTotalColumns == true {
+            .#{$prefix}#{$index}#{$columnsSeparator}#{$total} {
+                @include _setFloatGridColumnStep($index, $total);
+            }
+        }
+        @if $index > 0 and $viewTotalColumns == false {
+            .#{$prefix}#{$index} {
+                @include _setFloatGridColumnStep($index, $total);
+            }
+        }
+        $index: $index - 1;
+    }
+}
+
+@mixin _loopFloatGridColumnSetFill ($prefix, $total, $fill, $index, $viewTotalColumns, $columnsSeparator, $prevRule:""){
+    $nextRule:"";
+    @if $viewTotalColumns == true{
+        @while $index >= 0{
+            @if $index == $total{
+                $nextRule: ".#{$prefix}#{$index}#{$columnsSeparator}#{$total}";
+            }
+            @else{
+                @if $index > 0{
+                    $nextRule: $nextRule + ", .#{$prefix}#{$index}#{$columnsSeparator}#{$total}";
+                }
+            }
+
+            @if $index == 0 and $fill == "tablet-landscape" {
+                @media #{$till-hd-ready} {
+                    // Tablet landscape
+                    #{$nextRule} {
+                        width: 100%;
+                    }
+                }
+            }
+
+            @if $index == 0 and $fill == "tablet-portrait" {
+                @media #{$till-tablet-landscape} {
+                    // Tablet landscape
+                    #{$nextRule} {
+                        width: 100%;
+                    }
+                }
+            }
+
+            @if $index == 0 and $fill == "smartphone-landscape" {
+                @media #{$till-tablet-portrait} {
+                    // Tablet landscape
+                    #{$nextRule} {
+                        width: 100%;
+                    }
+                }
+            }
+
+            @if $index == 0 and $fill == "smartphone-portrait" {
+                @media #{$till-smartphone-landscape} {
+                    // Tablet landscape
+                    #{$nextRule} {
+                        width: 100%;
+                    }
+                }
+            }
+
+            $index: $index - 1;
+        }
+    }
+    @else{
+        @while $index >= 0{
+            @if $index == $total{
+                $nextRule: ".#{$prefix}#{$index}";
+            }
+            @else {
+                @if $index > 0{
+                    $nextRule: $nextRule + ", .#{$prefix}#{$index}";
+                }
+            }
+
+            @if $index == 0 and $fill == "tablet-landscape" {
+                @media #{$till-hd-ready} {
+                    // Tablet landscape
+                    #{$nextRule} {
+                        width: 100%;
+                    }
+                }
+            }
+
+            @if $index == 0 and $fill == "tablet-portrait" {
+                @media #{$till-tablet-landscape} {
+                    // Tablet landscape
+                    #{$nextRule} {
+                        width: 100%;
+                    }
+                }
+            }
+
+            @if $index == 0 and $fill == "smartphone-landscape" {
+                @media #{$till-tablet-portrait} {
+                    // Tablet landscape
+                    #{$nextRule} {
+                        width: 100%;
+                    }
+                }
+            }
+
+            @if $index == 0 and $fill == "smartphone-portrait" {
+                @media #{$till-smartphone-landscape} {
+                    // Tablet landscape
+                    #{$nextRule} {
+                        width: 100%;
+                    }
+                }
+            }
+
+
+            $index: $index - 1;
+        }
+    }
+}
+
+@mixin _setFloatGridColumns($columns) {
+    width:(100%/$columns);
+    &:nth-child(#{$columns}n+1) {
+        clear:both;
+    }
+}
+
+@mixin _setFloatGridColumnStep($step, $columns) {
+    width:((100% * $step) / $columns);
+}
+
+@mixin _setColumnBehavior($usePosition:true, $float:left, $useBorderBox:true) {
+    padding-left: $horizontal-padding;
+    padding-right: $horizontal-padding;
+    padding-bottom: $vertical-padding;
+    float: left;
+    @if $usePosition == true {
+        position: relative;
+    }
+    @if $useBorderBox == true {
+        @include box-sizing(border-box);
+    }
+}

@@ -1,11 +1,7 @@
-
-# Jekyll #
-##########
-_site
-.sass-cache
-
-
+# package.json
+# Gruntfile.js
 bower.json
+# .csslintrc
 .csslintrc.comments.json
 /img
 
@@ -59,3 +55,5 @@ test/*.diff
 Icon?
 ehthumbs.db
 Thumbs.db
+
+.sass-cache

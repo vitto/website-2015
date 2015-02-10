@@ -1,0 +1,106 @@
+@mixin addMarginRule(
+    $selector                  ,
+    $hdFullMargin              : ($global-step * 5),
+    $hdReadyMargin             : ($global-step * 4),
+    $tabletLandscapeMargin     : ($global-step * 3),
+    $tabletPortraitMargin      : ($global-step * 2),
+    $smartphoneLandscapeMargin : $global-step,
+    $smartphonePortraitMargin  : ($global-step / 2)
+    ) {
+
+    @include _addMarginRule($from-smartphone-landscape, $selector, $smartphoneLandscapeMargin);
+    @include _addMarginRule($from-tablet-portrait,      $selector, $tabletPortraitMargin);
+    @include _addMarginRule($from-tablet-landscape,     $selector, $tabletLandscapeMargin);
+    @include _addMarginRule($from-hd-ready,             $selector, $hdReadyMargin);
+    @include _addMarginRule($from-hd-full,              $selector, $hdFullMargin);
+}
+
+@mixin _addMarginRule($viewport, $selector, $margin) {
+    @media #{$viewport} {
+        .#{$selector} {
+            margin : $margin;
+        }
+    }
+}
+
+@mixin setViewportsMargin(
+    $hdFullMargin              : ($global-step * 5),
+    $hdReadyMargin             : ($global-step * 4),
+    $tabletLandscapeMargin     : ($global-step * 3),
+    $tabletPortraitMargin      : ($global-step * 2),
+    $smartphoneLandscapeMargin : $global-step,
+    $smartphonePortraitMargin  : ($global-step / 2)
+    ) {
+
+    // Media queries for selectors active from a specific resolution or higher
+    @include _setViewportsMargin($from-smartphone-portrait,  $smartphonePortraitMargin);
+    @include _setViewportsMargin($from-smartphone-landscape, $smartphoneLandscapeMargin);
+    @include _setViewportsMargin($from-tablet-portrait,      $tabletPortraitMargin);
+    @include _setViewportsMargin($from-tablet-landscape,     $tabletLandscapeMargin);
+    @include _setViewportsMargin($from-hd-ready,             $hdReadyMargin);
+    @include _setViewportsMargin($from-hd-full,              $hdFullMargin);
+}
+
+@mixin _setViewportsMargin($viewport, $margin) {
+    @media #{$viewport} {
+        margin : $margin;
+    }
+}
+
+@mixin addMarginSelector(
+    $selector         : false,
+    $verticalMargin   : $vertical-margin,
+    $horizontalMargin : $horizontal-margin
+    ) {
+
+    @if $selector != false{
+        #{$selector}-margin {
+            margin: $verticalMargin $horizontalMargin #{$important};
+        }
+        #{$selector}-margin-vertical {
+            margin-bottom: $verticalMargin #{$important};
+            margin-top: $verticalMargin #{$important};
+        }
+        #{$selector}-margin-bottom {
+            margin-bottom: $verticalMargin #{$important};
+        }
+        #{$selector}-margin-top {
+            margin-top: $verticalMargin #{$important};
+        }
+        #{$selector}-margin-horizontal {
+            margin-left: $horizontalMargin #{$important};
+            margin-right: $horizontalMargin #{$important};
+        }
+        #{$selector}-margin-left {
+            margin-left: $horizontalMargin #{$important};
+        }
+        #{$selector}-margin-right {
+            margin-right: $horizontalMargin #{$important};
+        }
+    }
+    @else{
+        .with-margin {
+            margin: $verticalMargin $horizontalMargin #{$important};
+        }
+        .margin-vertical {
+            margin-bottom: $verticalMargin #{$important};
+            margin-top: $verticalMargin #{$important};
+        }
+        .margin-bottom {
+            margin-bottom: $verticalMargin #{$important};
+        }
+        .margin-top {
+            margin-top: $verticalMargin #{$important};
+        }
+        .margin-horizontal {
+            margin-left: $horizontalMargin #{$important};
+            margin-right: $horizontalMargin #{$important};
+        }
+        .margin-left {
+            margin-left: $horizontalMargin #{$important};
+        }
+        .margin-right {
+            margin-right: $horizontalMargin #{$important};
+        } 
+    }
+}

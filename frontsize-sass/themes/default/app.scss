@@ -1,0 +1,20 @@
+
+// if $use-root-path located in app.less is set to true use it with:
+// .background-image("background.png");
+// this will output
+// background-image: url("/img/background.png");
+
+//@include useFrontsizeWidgets();
+
+// set font scaling to change the font size depending by different resolutions
+//@include setFontScaling(body, 20px, 18px, 16px, 16px, 16px, 16px);
+//@include setLineHeightScaling(body, $global-step);
+
+@include addFontRule(small-font, $font-small, $font-small-size);
+
+//@include addFloatGridContainer(row);
+//@include addFloatGridColumns(12);
+//@include addFloatGridOffset(12);
+
+// put .addViewportsSteps at the bottom of the configuration
+//@include addViewportsSteps(use-steps, 500px, 100px, 50px, 0);

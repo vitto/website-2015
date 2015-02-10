@@ -13,6 +13,6 @@ github_username:  vitto
 
 # Build settings
 markdown: kramdown
-exclude: [ README.md, css/empty, fonts/empty, img/empty ]
+exclude: [ README.md, frontsize-less, frontsize-sass, test, css/empty, fonts/empty, img/empty ]
 timezone: Europe/Rome
 keep_files: [ css, fonts, img ]
