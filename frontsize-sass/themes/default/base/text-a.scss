@@ -13,22 +13,10 @@
 
 a {
 
-    $color     : $font-color;
-    $animation : 0.3s ease-in-out;
-
     display         : inline-block;
-    color           : $color;
-    line-height     : $font-line-height;
+    color           : $font-color;
     text-decoration : none;
-    border-bottom   : 2px solid;
 
-    $color: $font-color;
-
-    @include fallbackColor(border-bottom-color, fade($color, 30%));
-
-    $animation:0.3s ease-in-out;
-    @include transition("border-bottom #{$animation}, color #{$animation}");
-    
     &[title]:hover {
         text-decoration : none;
     }
@@ -36,16 +24,20 @@ a {
     &:hover,
     &.hover,
     &.selected,
-    &.active {
-        color : saturate(darken($color, 10%), 7%);
-        border-bottom-color : $color;
+    &.active,
+    &:hover i {
+        color : $font-color;
     }
-    
+
     &.selected {
         cursor : default;
     }
 
     img {
         border : none;
+    }
+
+    i {
+        color : $font-color;
     }
 }

@@ -29,7 +29,8 @@ module.exports = function(grunt) {
             production : {
                 options : {
                     sourcemap : 'auto',
-                    cleancss : false
+                    cleancss : false,
+                    style : 'expanded'
                 },
                 files : {
                     '<%= f.css %>' : '<%= f.compile %>'
@@ -38,7 +39,8 @@ module.exports = function(grunt) {
             autoprefixer : {
                 options : {
                     sourcemap : 'auto',
-                    cleancss : false
+                    cleancss : false,
+                    style : 'expanded'
                 },
                 files : {
                     '<%= f.autoprefixerCss %>' : '<%= f.compile %>'
@@ -46,7 +48,8 @@ module.exports = function(grunt) {
             },
             test : {
                 options : {
-                    cleancss : false
+                    cleancss : false,
+                    style : 'expanded'
                 },
                 files : {
                     '<%= f.testCss %>' : '<%= f.compileTest %>'
@@ -66,6 +69,9 @@ module.exports = function(grunt) {
         },
 
         watch: {
+            options : {
+                atBegin : true
+            },
             frontsize : {
                 files: [ '*.scss', '**/*.scss' ],
                 tasks: [ 'frontsize' ]
@@ -119,13 +125,13 @@ module.exports = function(grunt) {
                     {
                         expand  : true,
                         flatten : true,
-                        src     : [ 'themes/<%= f.themeName %>/img/*' ],
+                        src     : [ '<%= f.projectPath %>themes/<%= f.themeName %>/img/*' ],
                         dest    : '<%= f.copyProductionImg %>',
                         filter  : 'isFile'
                     },{
                         expand  : true,
                         flatten : true,
-                        src     : [ 'themes/<%= f.themeName %>/fonts/*' ],
+                        src     : [ '<%= f.projectPath %>themes/<%= f.themeName %>/fonts/*' ],
                         dest    : '<%= f.copyProductionFonts %>',
                         filter  : 'isFile'
                     }
@@ -142,7 +148,7 @@ module.exports = function(grunt) {
     ]);
 
     grunt.registerTask('frnAssets', [
-        'less:production',
+        'sass:production',
         'test',
         'clean',
         'assets'

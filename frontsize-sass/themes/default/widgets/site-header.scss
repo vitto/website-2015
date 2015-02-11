@@ -1,13 +1,22 @@
 .site-header {
-    padding-bottom : $global-step;
+    @include setFloatGridContainer();
+
     border-bottom  : $border;
 
     @include element(logo) {
-        // @include setFloatGridColumn(4,4,4);
+        @include setFloatGridColumn(4,4,4);
     }
 
     @include element(title) {
-        // @include setFloatGridColumn(8,8,8);
+        @include setFloatGridColumn(8,8,8);
+    }
+
+    @include element(description) {
+        margin-top: 0;
+    }
+
+    nav a {
+        margin-right: 5px;
     }
 }
 

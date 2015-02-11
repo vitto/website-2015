@@ -4,7 +4,7 @@
 // Url - http://html5doctor.com/element-index/#body
 
 body {
-    
+
     background-color : $body-color;
     color            : $font-color;
     font-family      : $font-default;
@@ -12,7 +12,7 @@ body {
     font-weight      : $font-weight;
     line-height      : $font-line-height;
     margin           : 0;
-    padding          : 0;
+    padding          : ($global-step * 2);
 
     //@include font-smoothing(); // if you want to enable font smoothing (will be applied to webkit only)
 }

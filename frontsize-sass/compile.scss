@@ -1,2 +1,4 @@
-@import "core/vendor/normalize.css"; // External libraries NOT INCLUDED FOR TESTS
+@import "core/vendor/normalize.css.scss"; // External libraries NOT INCLUDED FOR TESTS
 @import "compile-test";
+
+@import 'themes/default/vendor/font-awesome.css.scss';
