@@ -137,7 +137,28 @@ module.exports = function(grunt) {
                     }
                 ]
             }
-        }
+        },
+
+        stylestats: {
+            options: {
+                size                   : true,
+                gzippedSize            : false,
+                simplicity             : true,
+                rules                  : true,
+                selectors              : true,
+                lowestCohesion         : true,
+                lowestCohesionSelector : true,
+                totalUniqueFontSizes   : true,
+                uniqueFontSize         : true,
+                totalUniqueColors      : true,
+                uniqueColor            : true,
+                idSelectors            : true,
+                universalSelectors     : true,
+                importantKeywords      : true,
+                mediaQueries           : true
+            },
+            src: [ '<%= f.testCss %>' ]
+          }
     });
 
     require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
@@ -151,7 +172,8 @@ module.exports = function(grunt) {
         'sass:production',
         'test',
         'clean',
-        'assets'
+        'assets',
+        'stylestats'
     ]);
 
     grunt.registerTask('devAssets', [
@@ -188,6 +210,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask('test', [
         'sass:test',
-        'csslint:test'
+        'csslint:test',
+        'stylestats'
     ]);
 };

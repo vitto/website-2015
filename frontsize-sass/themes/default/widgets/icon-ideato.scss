@@ -1,0 +1,6 @@
+.icon-ideato {
+    display: inline-block;
+    position: relative;
+    top: 2px;
+    @include icon("ideato-asterisk-2015.svg", 14px);
+}

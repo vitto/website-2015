@@ -440,6 +440,23 @@ a i {
   color: #545454;
 }
 
+.icon-ideato {
+  display: inline-block;
+  position: relative;
+  top: 2px;
+  width: 14px;
+  height: 14px;
+  -webkit-box-sizing: border-box;
+  -khtml-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  background-image: url("/img/theme/ideato-asterisk-2015.svg");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
 .site-header {
   padding-top: 20px;
   width: 100%;
@@ -529,16 +546,16 @@ a i {
 @font-face {
   font-family: "open sans";
   font-weight: 700;
-  src: url("production/img/theme/fonts/OpenSans-Bold.eot?#iefix") format("embedded-opentype"), url("production/img/theme/fonts/OpenSans-Bold.woff2") format("woff2"), url("production/img/theme/fonts/OpenSans-Bold.woff") format("woff"), url("production/img/theme/fonts/OpenSans-Bold.ttf") format("truetype"), url("production/img/theme/fonts/OpenSans-Bold.svgopen sans") format("svg");
+  src: url("/fonts/OpenSans-Bold.eot?#iefix") format("embedded-opentype"), url("/fonts/OpenSans-Bold.woff2") format("woff2"), url("/fonts/OpenSans-Bold.woff") format("woff"), url("/fonts/OpenSans-Bold.ttf") format("truetype"), url("/fonts/OpenSans-Bold.svgopen sans") format("svg");
 }
 @font-face {
   font-family: "open sans";
-  src: url("production/img/theme/fonts/OpenSans-Regular.eot?#iefix") format("embedded-opentype"), url("production/img/theme/fonts/OpenSans-Regular.woff2") format("woff2"), url("production/img/theme/fonts/OpenSans-Regular.woff") format("woff"), url("production/img/theme/fonts/OpenSans-Regular.ttf") format("truetype"), url("production/img/theme/fonts/OpenSans-Regular.svgopen sans") format("svg");
+  src: url("/fonts/OpenSans-Regular.eot?#iefix") format("embedded-opentype"), url("/fonts/OpenSans-Regular.woff2") format("woff2"), url("/fonts/OpenSans-Regular.woff") format("woff"), url("/fonts/OpenSans-Regular.ttf") format("truetype"), url("/fonts/OpenSans-Regular.svgopen sans") format("svg");
 }
 @font-face {
   font-family: "open sans";
   font-weight: 200;
-  src: url("production/img/theme/fonts/OpenSans-Light.eot?#iefix") format("embedded-opentype"), url("production/img/theme/fonts/OpenSans-Light.woff2") format("woff2"), url("production/img/theme/fonts/OpenSans-Light.woff") format("woff"), url("production/img/theme/fonts/OpenSans-Light.ttf") format("truetype"), url("production/img/theme/fonts/OpenSans-Light.svgopen sans") format("svg");
+  src: url("/fonts/OpenSans-Light.eot?#iefix") format("embedded-opentype"), url("/fonts/OpenSans-Light.woff2") format("woff2"), url("/fonts/OpenSans-Light.woff") format("woff"), url("/fonts/OpenSans-Light.ttf") format("truetype"), url("/fonts/OpenSans-Light.svgopen sans") format("svg");
 }
 .limit {
   display: block;
