@@ -2,13 +2,13 @@
     "compile"             : "frontsize-sass/compile.scss",
     "compileTest"         : "frontsize-sass/compile-test.scss",
     "themeName"           : "default",
-    "copyProductionImg"   : "img/theme/",
-    "copyProductionFonts" : "fonts/",
+    "copyProductionImg"   : "_site/img/theme/",
+    "copyProductionFonts" : "_site/fonts/",
     "uncssProductionCss"  : "css/",
     "projectPath"         : "frontsize-sass/",
 
     "testCss"         : "frontsize-sass/test/frontsize.test.css",
     "autoprefixerCss" : "frontsize-sass/test/frontsize.autoprefixer.min.css",
     "minifiedCss"     : "frontsize-sass/test/frontsize.min.css",
-    "css"             : "css/frontsize-3.0.0.min.css"
+    "css"             : "_site/css/frontsize-3.0.0.min.css"
 }
