@@ -3,13 +3,13 @@ That's my personal web site i will publish soon.
 
 #How to install
 
-Install Xcode
+Install [Xcode][xcode]
 
 ```
 xcode-select --install
 ```
 
-Install Homebrew
+Install [Homebrew][brew]
 
 ```
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -21,13 +21,13 @@ Check installation
 brew doctor
 ```
 
-Make Homebrew visible globally on the system
+Make [Homebrew][brew] visible globally on the system
 
 ```
 export PATH="/usr/local/bin:$PATH"
 ```
 
-Install NodeJS
+Install [NodeJS][nodejs]
 
 ```
 brew install node
@@ -77,6 +77,9 @@ To see more on what these scripts do checkout `Gruntfile.js` on the root folder 
 
 [Jekyll][jekyll] and [Frontsize][frontsize] needs to run on different Terminal tabs to work at the same time.
 
-[jekyll]: http://jekyllrb.com
 [frontsize]: https://github.com/ideatosrl/frontsize-sass
-[gruntjs]: http://gruntjs.com
+[gruntjs]:   http://gruntjs.com
+[jekyll]:    http://jekyllrb.com
+[nodejs]:    http://nodejs.org
+[xcode]:     https://developer.apple.com/xcode/
+[brew]:      http://brew.sh
