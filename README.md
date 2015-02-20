@@ -77,6 +77,6 @@ To see more on what these scripts do checkout `Gruntfile.js` on the root folder 
 
 [Jekyll][jekyll] and [Frontsize][frontsize] needs to run on different Terminal tabs to work at the same time.
 
-jekyll: [http://jekyllrb.com]
-frontsize: [https://github.com/ideatosrl/frontsize-sass]
-gruntjs:
+jekyll: http://jekyllrb.com
+frontsize: https://github.com/ideatosrl/frontsize-sass
+gruntjs: http://gruntjs.com
