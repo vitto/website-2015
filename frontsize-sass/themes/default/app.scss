@@ -10,9 +10,9 @@
 //@include setFontScaling(body, 20px, 18px, 16px, 16px, 16px, 16px);
 //@include setLineHeightScaling(body, $global-step);
 
-@include font('open sans', 'OpenSans-Bold',    700);
-@include font('open sans', 'OpenSans-Regular');
-@include font('open sans', 'OpenSans-Light',   200);
+@include font("open sans", "OpenSans-Bold",    700);
+@include font("open sans", "OpenSans-Regular", 400, "OpenSans-Light");
+@include font("open sans", "OpenSans-Light",   200);
 
 @include addViewportsSteps(limit, 500px, 100px, 50px, 0);
 

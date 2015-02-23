@@ -1,0 +1,43 @@
+.header-article {
+
+    @include setFloatGridContainer();
+
+    @include element("reduction") {
+        @include setFloatGridOffset(2,2,2);
+        @include setFloatGridColumn(10,10,10);
+        padding-top: $global-step;
+        padding-left: 0;
+        padding-bottom: $global-step;
+        border-bottom: $border;
+    }
+
+    @include element("image-container") {
+        @include setFloatGridColumn(3,3,3);
+        padding-left: 0;
+    }
+
+    @include element("header") {
+        @include setFloatGridColumn(9,9,9);
+    }
+
+    @include element("title") {
+        margin-top: $global-step;
+        margin-bottom: ($global-step * 2);
+    }
+
+    @include element("date") {
+        display: block;
+    }
+
+    @include element("social") {
+        margin-top: $global-step;
+    }
+
+    @include element("image") {
+        width: 100%;
+        height: 220px;
+        background-position: 50% 50%;
+        background-size: cover;
+        background-color: $font-color;
+    }
+}

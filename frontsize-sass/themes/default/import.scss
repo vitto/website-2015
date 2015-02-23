@@ -24,7 +24,7 @@
 // @import "base/grouping-pre";
 // @import "base/grouping-ul-ol-li";
 @import "base/section-body";
-// @import "base/section-h1-h6";
+@import "base/section-h1-h6";
 // @import "base/section-main";
 // @import "base/table-caption";
 // @import "base/table-td";
@@ -45,5 +45,7 @@
 // @import "helpers/my-helper";
 
 @import "widgets/icon-ideato";
+@import "widgets/header-article";
+@import "widgets/header-category";
 @import "widgets/site-header";
 @import "app";
