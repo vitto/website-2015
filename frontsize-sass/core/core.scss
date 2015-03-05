@@ -3,13 +3,14 @@ Frontsize: http://frontsize.com
 GitHub:    https://github.com/ideatosrl/frontsize-sass
 License:   MIT Licence
 Version:   3.0.0
-Date:      2015
+Date:      2015-03-05 00:44:07
 Authors:   Vittorio Vittori, Alessandro Minoccheri
 */
 
 @charset "UTF-8";
 
 @import "vars";
+@import "functions";
 
 @import "grids/flex-grid";
 @import "grids/float-grid";

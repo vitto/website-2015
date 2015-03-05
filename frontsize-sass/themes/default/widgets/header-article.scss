@@ -1,6 +1,7 @@
 .header-article {
 
     @include setFloatGridContainer();
+    padding-bottom: $global-step;
 
     @include element("reduction") {
         @include setFloatGridOffset(2,2,2);
@@ -13,11 +14,12 @@
 
     @include element("image-container") {
         @include setFloatGridColumn(3,3,3);
-        padding-left: 0;
+        padding-right: $global-step;
     }
 
     @include element("header") {
         @include setFloatGridColumn(9,9,9);
+        padding-left: $global-step;
     }
 
     @include element("title") {
@@ -35,9 +37,18 @@
 
     @include element("image") {
         width: 100%;
-        height: 220px;
-        background-position: 50% 50%;
-        background-size: cover;
+        $size: 220px;
+        height: $size;
+        @include fallbackBackgroundSize(cover, $size $size, 50% 50%);
+
         background-color: $font-color;
+
+        //@include transition(prefix("filter"), "0.25s ease-in-out");
+        @include transition("filter" "-webkit-filter", "0.25s ease-in-out");
+        @include filter("grayscale(100%)");
+
+        &:hover {
+            @include filter("grayscale(0%)");
+        }
     }
 }

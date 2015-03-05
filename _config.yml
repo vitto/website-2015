@@ -1,18 +1,22 @@
+source:      .
+destination: ./_site
+plugins:     ./_plugins
+layouts:     ./_layouts
+data_source: ./_data
+collections: null
+
 # Site settings
-title: vitto
-email: me@vit.to
-description: > # this means to ignore newlines until "baseurl:"
-    vit.to is the personal homepage of Vittorio Vittori,
-    a front-end developer who works at ideato srl,
-    an italian company which builds awesome websites.
-baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://0.0.0.0:4000" # the base hostname & protocol for your site
-theme: "/img/theme/"
+title:       vitto
+email:       me@vit.to
+description: "vit.to is the personal homepage of Vittorio Vittori, a front-end developer who works at ideato srl, an italian company which builds awesome websites."
+baseurl:     ""
+url:         "http://vit.to:4000" # the base hostname & protocol for your site
+theme:       "/img/theme/"
 twitter_username: vttrx
 github_username:  vitto
 
 # Build settings
-markdown: kramdown
-exclude: [ Gemfile, Gruntfile.js, frontsize.json, package.json, README.md, frontsize-sass, test, css/empty, fonts/empty, img/empty, node_modules, .sass-cache ]
-timezone: Europe/Rome
+markdown:   kramdown
+exclude:    [ Gemfile, Gruntfile.js, frontsize.json, package.json, README.md, frontsize-sass, test, css/empty, fonts/empty, img/empty, node_modules, .sass-cache ]
+timezone:   Europe/Rome
 keep_files: [ css, fonts, img ]
