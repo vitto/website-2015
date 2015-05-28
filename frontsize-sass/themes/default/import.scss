@@ -42,10 +42,10 @@
 // @import "base/text-span";
 // @import "base/text-time";
 
-// @import "helpers/my-helper";
+@import "vendor/font-awesome.css.scss";
 
-@import "widgets/icon-ideato";
-@import "widgets/header-article";
-@import "widgets/header-category";
-@import "widgets/site-header";
+// @import "widgets/icon-ideato";
+@import "widgets/vittorio-vittori-logo";
+@import "widgets/my-life-on-ul";
+// @import "widgets/site-header";
 @import "app";

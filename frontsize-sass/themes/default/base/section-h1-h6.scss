@@ -18,7 +18,8 @@ h6 {
     font-family : $font-heading;
     font-weight : bold;
     line-height : 1;
-    margin      : 0 0 ($global-step / 2) 0;
+    margin      : 0 0 s() 0;
+    letter-spacing: -0.5px;
 }
 
 h1 { font-size : $h1; }

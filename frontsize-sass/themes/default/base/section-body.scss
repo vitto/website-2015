@@ -12,7 +12,16 @@ body {
     font-weight      : $font-weight;
     line-height      : $font-line-height;
     margin           : 0;
-    padding          : ($global-step * 2);
+    padding          : s(2);
+
+    @include setViewportsPadding(
+        s(5),
+        s(5),
+        s(3),
+        s(2),
+        s(2),
+        s()
+    );
 
     //@include font-smoothing(); // if you want to enable font smoothing (will be applied to webkit only)
 }

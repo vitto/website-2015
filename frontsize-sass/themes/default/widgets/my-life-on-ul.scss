@@ -1,0 +1,24 @@
+.my-life-on-ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+
+    // &:hover .my-life-on-ul__button {
+    //     color: $body-color;
+    //     &:hover {
+    //         color: $font-color;
+    //     }
+    // }
+
+    @include element("button") {
+        font-weight: 400;
+        &:hover {
+            text-decoration: line-through;
+        }
+    }
+
+    .fa {
+        color: $font-color;
+    }
+}

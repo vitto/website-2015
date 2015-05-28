@@ -11,10 +11,9 @@
 //@include setLineHeightScaling(body, $global-step);
 
 @include font("open sans", "OpenSans-Bold",    700);
+@include font("open sans", "OpenSans-Semibold", 500);
 @include font("open sans", "OpenSans-Regular", 400, "OpenSans-Light");
 @include font("open sans", "OpenSans-Light",   200);
-
-@include addViewportsSteps(limit, 500px, 100px, 50px, 0);
 
 //@include addFloatGridContainer(row);
 //@include addFloatGridColumns(12);

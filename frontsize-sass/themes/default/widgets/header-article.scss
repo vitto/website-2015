@@ -10,6 +10,12 @@
         padding-left: 0;
         padding-bottom: $global-step;
         border-bottom: $border;
+
+        &:hover {
+            .header-article__image {
+                @include filter("grayscale(0%)");
+            }
+        }
     }
 
     @include element("image-container") {
@@ -43,8 +49,8 @@
 
         background-color: $font-color;
 
-        //@include transition(prefix("filter"), "0.25s ease-in-out");
-        @include transition("filter" "-webkit-filter", "0.25s ease-in-out");
+        @include transition(prefix("filter"), "0.25s ease-in-out");
+        //@include transition("filter" "-webkit-filter", "0.25s ease-in-out");
         @include filter("grayscale(100%)");
 
         &:hover {

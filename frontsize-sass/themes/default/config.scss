@@ -1,11 +1,11 @@
 
 // font sizes for h# elements
-$h1 : 32px;
-$h2 : 28px;
-$h3 : 24px;
-$h4 : 20px;
-$h5 : 18px;
-$h6 : 16px;
+$h1 : 28px;
+$h2 : 24px;
+$h3 : 20px;
+$h4 : 18px;
+$h5 : 16px;
+$h6 : 14px;
 
 // Font sizes
 $font-size:       14px;
@@ -21,43 +21,43 @@ $font-small     : "lucida grande", tahoma, verdana, arial, sans-serif;
 $font-default : $font-sans;
 $font-heading : $font-sans;
 
-$global-step : 20px;
+$spacing : 20px;
 
-$font-line-height    : $global-step;
+$font-line-height    : $spacing;
 $font-weight         : 400;
 $font-color          : #545454;
 $body-color          : #F5F0D6;
 $fallback-color-base : $body-color;
 
 // Global padding configuration
-$horizontal-padding : $global-step;
-$vertical-padding   : $global-step;
+$horizontal-padding : $spacing;
+$vertical-padding   : $spacing;
 $global-padding     : $vertical-padding $horizontal-padding;
 
 // State selectors configuration
 $state-important        : true;
 $state-faded-opacity    : 0.5;
 $state-disabled-opacity : 0.5;
-$state-table-padding    : round($global-step / 2);
+$state-table-padding    : round($spacing / 2);
 
-// set different width for the smartphones, tablets and hd resolutions
-$smartphone-portrait-step  : 320px;  // smartphones portrait  320~380
-$smartphone-landscape-step : 480px;  // smartphones landscape 480~568~685
-$tablet-portrait-step      : 768px;  // tablet portrait       768
-$tablet-landscape-step     : 1024px; // tablet landscape      1024
-$hd-ready-step             : 1280px; // HD Ready              1280 (720p)
-$hd-full-step              : 1800px; // Full HD               1920 (1080p)
+// set different width for the mobile, tablets and hd resolutions
+$mobile-portrait-step  : 320px;  // mobile portrait  320~380
+$mobile-landscape-step : 480px;  // mobile landscape 480~568~685
+$tablet-portrait-step  : 768px;  // tablet portrait       768
+$tablet-landscape-step : 1024px; // tablet landscape      1024
+$hd-ready-step         : 1280px; // HD Ready              1280 (720p)
+$hd-full-step          : 1800px; // Full HD               1920 (1080p)
 
 // Granular setting for which Media Query rules are enabled
-$use-viewport-states      : true;
-$use-smartphone-portrait  : true;
-$use-smartphone-landscape : true;
-$use-tablet-portrait      : true;
-$use-tablet-landscape     : true;
-$use-hd-ready             : true;
-$use-hd-full              : true;
-$use-viewport-states      : true;
-$use-print-viewport       : false;
+$use-viewport-states  : true;
+$use-mobile-portrait  : true;
+$use-mobile-landscape : true;
+$use-tablet-portrait  : true;
+$use-tablet-landscape : true;
+$use-hd-ready         : true;
+$use-hd-full          : true;
+$use-viewport-states  : true;
+$use-print-viewport   : false;
 
 $use-state-margin      : false;
 $use-state-padding     : false;
