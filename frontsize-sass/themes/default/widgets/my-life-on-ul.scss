@@ -13,9 +13,6 @@
 
     @include element("button") {
         font-weight: 400;
-        // &:hover {
-        //     text-decoration: line-through;
-        // }
     }
 
     .fa {
