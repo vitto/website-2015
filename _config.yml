@@ -6,6 +6,7 @@ data_source: ./_data
 collections: null
 
 # Site settings
+permalink: pretty
 title:       vitto
 email:       me@vit.to
 description: "vit.to is the personal homepage of Vittorio Vittori, a front-end developer who works at ideato srl, an italian company which builds awesome websites."
