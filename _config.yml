@@ -17,6 +17,6 @@ github_username:  vitto
 
 # Build settings
 markdown:   kramdown
-exclude:    [ Gemfile, Gruntfile.js, frontsize.json, package.json, README.md, frontsize-sass, test, css/empty, fonts/empty, img/empty, node_modules, .sass-cache ]
+exclude:    [ bin, Gemfile, Gruntfile.js, frontsize.json, package.json, README.md, frontsize-sass, test, css/empty, fonts/empty, img/empty, node_modules, .sass-cache ]
 timezone:   Europe/Rome
 keep_files: [ css, fonts, img ]

@@ -4,18 +4,20 @@
     padding: 0;
     display: inline-block;
 
-    // &:hover .my-life-on-ul__button {
-    //     color: $body-color;
-    //     &:hover {
-    //         color: $font-color;
-    //     }
-    // }
+    &:hover .my-life-on-ul__button {
+        color: mix($font-color, $body-color, 10%);
+        &:hover {
+            color: $font-color;
+            @include transition(color 0s ease-in-out);
+        }
+    }
 
     @include element("button") {
+        @include transition(color 0.25s ease-in-out);
         font-weight: 400;
-        &:hover {
-            text-decoration: line-through;
-        }
+        // &:hover {
+        //     text-decoration: line-through;
+        // }
     }
 
     .fa {
