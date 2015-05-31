@@ -1,6 +1,9 @@
 .side-left {
-    min-height: 100vh;
-    padding : s(2);
+    position: fixed;
+    top: 0;
+    overflow-y: scroll;
+    height: 100vh;
+    padding: s(2);
     @include setViewportsPadding(
         s(5),
         s(5),
@@ -10,7 +13,7 @@
         s()
     );
 
-    @include setFloatGridColumn(false, 4, 4, 5, 12, 12, 12);
+    @include setFloatGridColumn(false, 4, 5, 5, 12, 12, 12, 12, false, false);
     @include setFloatGridContainer();
 
     @include element("header") {
@@ -21,7 +24,8 @@
         @include setFloatGridColumn(true, 12, 12, 12, 6, 12, 12);
     }
 
-    @media #{$only-tablet-portrait} {
-        min-height: 0;
+    @media #{$till-tablet-landscape} {
+        position: static;
+        height: auto;
     }
 }

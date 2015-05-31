@@ -10,5 +10,16 @@
         s(2),
         s()
     );
-    @include setFloatGridColumn(false, 8, 8, 7, 12, 12, 12);
+    @include setFloatGridColumn(false, 8, 7, 7, 12, 12, 12);
+    @include setFloatGridOffset(4, 5, 5, 0, 0, 0);
+
+    @include modifier("post") {
+        margin-top:    s(2);
+        margin-bottom: s(2);
+        @include box-shadow(0 2px 4px rgba(0,0,0,0.2));
+        @media #{$till-tablet-landscape} {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+    }
 }

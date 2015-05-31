@@ -965,7 +965,7 @@
     @if $useBoxSizing == true {
         @include box-sizing(border-box);
     }
-    
+
     * {
         @include box-sizing(border-box);
     }
@@ -1059,7 +1059,9 @@
     $tabletPortraitStep  : 0,
     $mobileLandscapeStep : 0,
     $mobilePortraitStep  : 0,
-    $totalSteps          : 12
+    $totalSteps          : 12,
+    $useBorderBox        : true,
+    $useRelativePosition : true
     ) {
 
     @if $usePadding != false and $usePadding != true {
@@ -1074,8 +1076,7 @@
         $hdFullStep          : $usePadding;
     }
 
-    width: 100%;
-    @include _setColumnBehavior(true, left, true, $usePadding);
+    @include _setColumnBehavior($useRelativePosition, left, $useBorderBox, $usePadding);
 
     @include _setFloatGridColumn($from-mobile-portrait,  $mobilePortraitStep,  $totalSteps);
     @include _setFloatGridColumn($from-mobile-landscape, $mobileLandscapeStep, $totalSteps);
