@@ -1,6 +1,5 @@
 .side-right {
     min-height: 100vh;
-    @include box-sizing("border-box");
     padding : s(2);
     background-color: white;
     @include setViewportsPadding(
@@ -11,5 +10,5 @@
         s(2),
         s()
     );
-    @include setFloatGridColumn(false, 8, 8, 9, 9, 12, 12);
+    @include setFloatGridColumn(false, 8, 8, 7, 12, 12, 12);
 }

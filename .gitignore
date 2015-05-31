@@ -9,7 +9,6 @@ bin
 
 bower.json
 .csslintrc.comments.json
-/img
 
 # temp files to be ignored #
 *.ai

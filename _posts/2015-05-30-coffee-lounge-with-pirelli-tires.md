@@ -2,9 +2,10 @@
 title: Tavolino sala con pneumatici Pirelli
 category: diy
 layout: post
-cover: image-name-without-extension
+cover: image-cover
 ---
 
+![Alt text](/img/posts/coffee-lounge-with-pirelli-tires/image-cover.jpg)
 
 Lorenzo e Sarah, due miei cari amici, sono da poco andati ad abitare assieme in una bella casa di 3 piani che è in gran parte già arredata, hanno in mente di cambiare gradualmente l’arredamento che non li rispecchia pienamente.
 

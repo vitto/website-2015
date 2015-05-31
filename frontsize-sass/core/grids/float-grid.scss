@@ -953,7 +953,8 @@
     $tabletLandscapeSteps : $hdReadySteps,
     $tabletPortraitSteps  : $tabletLandscapeSteps,
     $mobileLandscapeSteps : 1,
-    $mobilePortraitSteps  : 1
+    $mobilePortraitSteps  : 1,
+    $useBoxSizing         : true
     ) {
 
     padding-top : $vertical-padding;
@@ -961,8 +962,10 @@
     overflow    : auto;
     clear       : both;
 
-    @include box-sizing(border-box);
-
+    @if $useBoxSizing == true {
+        @include box-sizing(border-box);
+    }
+    
     * {
         @include box-sizing(border-box);
     }
