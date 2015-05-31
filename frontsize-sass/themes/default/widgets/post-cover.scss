@@ -1,0 +1,14 @@
+.post-cover {
+    @include setViewportsMargin(
+        s(-5) s(-5) s(5) s(-5),
+        s(-5) s(-5) s(5) s(-5),
+        s(-3) s(-3) s(3) s(-3),
+        s(-2) s(-2) s(2) s(-2),
+        s(-2) s(-2) s(2) s(-2),
+        s(-1) s(-1) s(1) s(-1)
+    );
+    img {
+        width: 100%;
+        height: auto;
+    }
+}

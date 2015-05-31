@@ -10,4 +10,4 @@ module Jekyll
     end
   end
 end
-Liquid::Template.register_tag('markdown', Jekyll::MarkdownBlock)
+Liquid::Template.register_tag('markdown_block', Jekyll::MarkdownBlock)
