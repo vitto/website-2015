@@ -50,7 +50,7 @@ gem install jekyll
 Run this command from the root folder of the repo:
 
 ```
-jekyll serve
+jekyll serve --watch
 ```
 
 

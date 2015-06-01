@@ -1,6 +1,43 @@
-<div class="cookie-policy">
+<div id="cookie-policy" class="cookie-policy cookie-policy--closed">
     <p class="cookie-policy__area">
         This site use cookies, if You continue the navigation You accept the <a href="#">cookie policies</a>.<br>
-        Click here to dismiss.
+        <span class="cookie-policy__close">Click here to dismiss.</span>
     </p>
 </div>
+
+<script type="text/javascript">
+
+function getCookie(cname) {
+    var name = cname + '=';
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') c = c.substring(1);
+        if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+    }
+    return '';
+}
+
+if (!getCookie('cookie-saw')) {
+
+    function setCookie(cname, cvalue, exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays*24*60*60*1000));
+        var expires = 'expires='+d.toUTCString();
+        document.cookie = cname + '=' + cvalue + '; ' + expires;
+    }
+
+    var d = document.getElementById('cookie-policy');
+    d.className = 'cookie-policy';
+
+    document.body.onclick = function(e){
+        e = window.event ? event.srcElement : e.target;
+        if (e.className && e.className.indexOf('cookie-policy__close')!=-1) {
+            var d = document.getElementById('cookie-policy');
+            d.className = d.className + ' cookie-policy--closed';
+            setCookie('cookie-saw', 'true');
+        }
+    }
+
+}
+</script>

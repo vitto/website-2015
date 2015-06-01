@@ -1,9 +1,21 @@
 .cookie-policy {
     padding: 0 s();
+    overflow: hidden;
+    height: 120px;
+
+    @include transition(height 0.25s ease-in-out);
+
+    @include modifier("closed") {
+        height: 0;
+    }
 
     @include element("area") {
         background-color: white;
         @include box-shadow(0 1px 2px rgba(0,0,0,0.2));
         padding: s();
+    }
+
+    @include element("close") {
+        cursor: pointer;
     }
 }
