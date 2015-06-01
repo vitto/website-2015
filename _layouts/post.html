@@ -3,7 +3,7 @@ layout: default-with-post
 ---
 {% if page.cover %}
 <div class="post-cover">
-    <img src="/img/posts/{{ page.title | downcase | replace: ' ','-' }}/image-cover.jpg" alt="">
+    <img src="/img/posts/{{ page.category }}/{{ page.title | downcase | replace: ' ','-' }}/image-cover.jpg" alt="">
 </div>
 {% endif %}
 
@@ -19,6 +19,8 @@ layout: default-with-post
   <article>
     {{ content }}
   </article>
+
+  <hr>
 
   {% include comments.html %}
 

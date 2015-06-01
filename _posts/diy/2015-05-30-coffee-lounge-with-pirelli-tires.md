@@ -97,5 +97,5 @@ Il problema della perforazione sta nel fatto che il trapano non può perforare v
 [painting_the_tire]:                    /img/posts/diy/coffee-lounge-with-pirelli-tires/painting-the-tire.jpg
 [writings_on_the_tire]:                 /img/posts/diy/coffee-lounge-with-pirelli-tires/writings-on-the-tire.jpg
 [paintings_on_the_tire_global_result]:  /img/posts/diy/coffee-lounge-with-pirelli-tires/paintings-on-the-tire-global-result.jpg
-[drilling_tires_schema]:                /img/posts/diy/coffee-lounge-with-pirelli-tires/drilling-tires-schema.jpg
+[drilling_tires_schema]:                /img/posts/diy/coffee-lounge-with-pirelli-tires/drilling-tires-schema.png
 [signs_for_drilling_tires]:             /img/posts/diy/coffee-lounge-with-pirelli-tires/signs-for-drilling-tires.jpg
