@@ -2,6 +2,7 @@
     min-height: 100vh;
     padding : s(2);
     background-color: white;
+
     @include setViewportsPadding(
         s(5),
         s(5),
@@ -10,6 +11,7 @@
         s(2),
         s()
     );
+
     @include setFloatGridColumn(false, 8, 7, 7, 12, 12, 12);
     @include setFloatGridOffset(4, 5, 5, 0, 0, 0);
 
