@@ -13,3 +13,32 @@
         (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
     }());
 </script>
+
+{% if page.location %}
+<script type="text/javascript">
+    function gmap() {
+        var address = '{{ page.location }}';
+        var zoom = 6;
+        var id = 'map-canvas';
+        //var icon = "http://vittoriovittori.com/wp-content/themes/vv2012/img/map-tack.png";
+
+        var geocoder = new google.maps.Geocoder();
+        geocoder.geocode( { 'address' : address}, function(results, status) {
+            var myOptions = {
+                center: results[0].geometry.location,
+                zoom: zoom,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                scrollwheel: false
+            };
+            map = new google.maps.Map(document.getElementById(id), myOptions);
+            var marker = new google.maps.Marker({
+                map: map,
+                position: results[0].geometry.location,
+                title: '{{ page.location }}'
+                // ,icon: icon
+            });
+        });
+    }
+    google.maps.event.addDomListener(window, 'load', gmap);
+</script>
+{% endif %}

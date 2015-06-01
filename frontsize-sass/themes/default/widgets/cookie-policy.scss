@@ -1,0 +1,9 @@
+.cookie-policy {
+    padding: 0 s();
+
+    @include element("area") {
+        background-color: white;
+        @include box-shadow(0 1px 2px rgba(0,0,0,0.2));
+        padding: s();
+    }
+}
