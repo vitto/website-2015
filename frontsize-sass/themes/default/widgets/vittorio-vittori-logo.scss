@@ -1,4 +1,13 @@
 .vittorio-vittori-logo {
-    @include icon("vittorio-vittori-logo-big.svg", 110px, 96px);
+    $width: 110px;
+    $height: 96px;
+    @include icon("vittorio-vittori-logo-big.svg", $width, $height);
     margin-bottom: s(2);
+
+    @include modifier("small") {
+        $scale: 0.5;
+        @include scaleBackgroundSize($scale, $width, $height);
+        @include size($width, $height, $scale);
+        margin-bottom: 0;
+    }
 }

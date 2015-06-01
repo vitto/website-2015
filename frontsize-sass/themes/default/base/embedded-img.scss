@@ -17,4 +17,5 @@
 
 img {
     @include interpolation-mode(bicubic);
+    background-color: $beige;
 }

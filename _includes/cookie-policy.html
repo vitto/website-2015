@@ -38,6 +38,8 @@ if (!getCookie('cookie-saw')) {
             setCookie('cookie-saw', 'true');
         }
     }
-
+} else {
+    var element = document.getElementById("cookie-policy");
+    element.parentNode.removeChild(element);
 }
 </script>

@@ -1,6 +1,6 @@
 @import "vars";
 
-// @import "base/embedded-img";
+@import "base/embedded-img";
 // @import "base/form-datalist";
 // @import "base/form-fieldset";
 // @import "base/form-input-checkbox";
@@ -48,6 +48,7 @@
 @import "widgets/disqus";
 @import "widgets/google-map";
 @import "widgets/main-with-post";
+@import "widgets/mobile-menu";
 @import "widgets/vittorio-vittori-logo";
 @import "widgets/my-life-on-ul";
 @import "widgets/photo";
