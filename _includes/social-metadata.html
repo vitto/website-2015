@@ -1,0 +1,21 @@
+<meta property="article:author" content="https://www.facebook.com/vittoriovittori" />
+<meta property="og:url"         content="{{ site.url }}{{ page.url }}">
+<meta property="og:type"        content="article">
+<meta property="og:title"       content="{{ page.title }} @ {{ site.title }}">
+
+{% if page.cover %}
+    <meta property="og:image" content="{{ site.url }}/img/posts/{{ page.category }}/{{ page.title | downcase | replace: ' ','-' }}/image-cover.jpg">
+{% else if page.photo %}
+    <meta property="og:image" content="{{ site.url }}/img/posts/photos/{{ page.photo }}.jpg">
+{% else %}
+    <meta property="og:image" content="{{ site.social_preview }}">
+{% endif %}
+
+{% if page.excerpt %}
+    <meta property="og:description" content="{{ page.excerpt | strip_html | strip_newlines | truncatewords:32 }}">
+    <meta name="description" content="{{ page.excerpt | strip_html | strip_newlines | truncate:160 }}">
+{% else %}
+    <meta name="description" content="{{ site.description }}">
+{% endif %}
+
+<meta content="{{ site.url }}/img/theme/google_favicon_128.png" itemprop="image">

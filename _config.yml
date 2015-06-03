@@ -6,15 +6,16 @@ data_source: ./_data
 collections: null
 
 # Site settings
-permalink:    pretty
-title:        vitto
-email:        me@vit.to
-description:  "vit.to is the personal homepage of Vittorio Vittori, a front-end developer who works at ideato srl, an italian company which builds awesome websites."
-baseurl:      ""
-url:          "http://vit.to:4000" # the base hostname & protocol for your site
-theme:        "/img/theme/"
-twitter_user: vttrx
-github_user:  vitto
+permalink:      pretty
+title:          vitto
+email:          me@vit.to
+description:    "vit.to is the personal homepage of Vittorio Vittori, a front-end developer who works at ideato srl, an italian company which builds awesome websites."
+baseurl:        ""
+url:            "http://0.0.0.0:4000" # the base hostname & protocol for your site
+theme:          "/img/theme/"
+twitter_user:   vttrx
+github_user:    vitto
+social_preview: http://vit.to/img/theme/social-preview.jpg
 
 # Build settings
 markdown: kramdown

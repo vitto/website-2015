@@ -32,4 +32,15 @@
             s(1) 0 s(1) 0
         );
     }
+
+    @include modifier("photo") {
+        @include setViewportsPadding(
+            s(5),
+            s(5),
+            s(2),
+            s(2),
+            s(2),
+            s(1)
+        );
+    }
 }
