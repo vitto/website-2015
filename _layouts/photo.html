@@ -2,9 +2,21 @@
 layout: default
 ---
 
+<!---
 {% if page.photo %}
 <div class="photo">
     <img src="/img/posts/photos/{{ page.photo }}.jpg" alt="">
+</div>
+{% endif %}
+-->
+
+{% if page.photo %}
+<div class="photo">
+    <div>
+        <div>
+            <img src="/img/posts/photos/{{ page.photo }}.jpg" alt="">
+        </div>
+    </div>
 </div>
 {% endif %}
 
