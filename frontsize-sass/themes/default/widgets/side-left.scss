@@ -6,14 +6,18 @@
     padding: s(2);
     @include setViewportsPadding(
         s(5),
-        s(5),
+        s(4),
         s(2),
         s(2),
         s(2),
         s()
     );
 
-    @include setFloatGridColumn(false, 4, 5, 5, 12, 12, 12, 12, false, false);
+    @include box-sizing(border-box);
+
+    @include setFloatGridColumn(false, 4, 4, 5, 12, 12, 12, 12, false, false);
+
+    /*
     @include setFloatGridContainer();
 
     @include element("header") {
@@ -23,6 +27,8 @@
     @include element("nav") {
         @include setFloatGridColumn(true, 12, 12, 12, 6, 12, 12);
     }
+
+    */
 
     @media #{$till-tablet-landscape} {
         position: static;

@@ -43,6 +43,7 @@ Install [Jekyll][jekyll]
 
 ```
 gem install jekyll
+gem install jekyll-exiftag
 ```
 
 #How to run Jekyll

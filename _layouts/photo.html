@@ -26,7 +26,47 @@ layout: default
 </div>
 {% endif %}
 
+<div class="photo-exif-details">
+    {% if page.location || page.iso || page.focal_length || page.flash || page.shutter_speed || page.aperture || page.camera || page.lens || page.date %}
+        <hr class="photo-exif-details__hr">
+    {% endif %}
+
+    {% if page.location %}
+         <span class="photo-exif"><strong>Location</strong> {{ page.location }}</span>
+    {% endif %}
+    {% if page.date %}
+         <span class="photo-exif"><strong>Date</strong> {{ page.datetime | date: "%A %-d %B %Y on %H:%M" }}</span>
+    {% endif %}<br>
+
+    {% if page.camera %}
+         <span class="photo-exif"><strong>Camera</strong> {{ page.camera }}</span>
+    {% endif %}
+    {% if page.lens %}
+         <span class="photo-exif"><strong>Lens</strong> {{ page.lens }}</span>
+    {% endif %}<br>
+
+    {% if page.iso %}
+         <span class="photo-exif"><strong>Iso</strong> {{ page.iso }}</span>
+    {% endif %}
+    {% if page.focal_length %}
+         <span class="photo-exif"><strong>Focal length</strong> {{ page.focal_length }}mm</span>
+    {% endif %}
+    {% if page.flash %}
+         <span class="photo-exif"><strong>Flash</strong> {{ page.flash }}</span>
+    {% endif %}
+    {% if page.shutter_speed %}
+         <span class="photo-exif"><strong>Shutter speed</strong> {{ page.shutter_speed }}sec</span>
+    {% endif %}
+    {% if page.aperture %}
+         <span class="photo-exif"><strong>Aperture</strong> f/{{ page.aperture }}</span>
+    {% endif %}
+
+</div>
+
+
+
 <div class="post post--photo">
+
     <header>
         <h1>{{ page.title }}</h1>
         <p>Published on {{ page.date | date: "%A %-d %B %Y" }} @vitto {% if page.meta %} • {{ page.meta }}{% endif %}</p>
@@ -34,44 +74,12 @@ layout: default
 
     {% include social-sharer.html %}
 
+    {{ exiftag model /img/posts/photos/pollo-cambogia.jpg }}
+    {{ exif /img/posts/photos/pollo-cambogia.jpg }}
+
     <article>
-
         {{ content }}
-
-        {% if page.location || page.iso || page.focal_length || page.flash || page.shutter_speed || page.aperture || page.camera || page.lens || page.date %}
-            <hr>
-        {% endif %}
-
-        {% if page.location %}
-             <span class="photo-exif"><strong>Location</strong> {{ page.location }}</span>
-        {% endif %}
-        {% if page.date %}
-             <span class="photo-exif"><strong>Date</strong> {{ page.datetime | date: "%A %-d %B %Y on %H:%M" }}</span>
-        {% endif %}<br>
-
-        {% if page.camera %}
-             <span class="photo-exif"><strong>Camera</strong> {{ page.camera }}</span>
-        {% endif %}
-        {% if page.lens %}
-             <span class="photo-exif"><strong>Lens</strong> {{ page.lens }}</span>
-        {% endif %}<br>
-
-        {% if page.iso %}
-             <span class="photo-exif"><strong>Iso</strong> {{ page.iso }}</span>
-        {% endif %}
-        {% if page.focal_length %}
-             <span class="photo-exif"><strong>Focal length</strong> {{ page.focal_length }}mm</span>
-        {% endif %}
-        {% if page.flash %}
-             <span class="photo-exif"><strong>Flash</strong> {{ page.flash }}</span>
-        {% endif %}
-        {% if page.shutter_speed %}
-             <span class="photo-exif"><strong>Shutter speed</strong> {{ page.shutter_speed }}sec</span>
-        {% endif %}
-        {% if page.aperture %}
-             <span class="photo-exif"><strong>Aperture</strong> f/{{ page.aperture }}</span>
-        {% endif %}
-
+        {% include paginator.html %}
     </article>
 
     {% if page.location %}

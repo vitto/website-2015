@@ -1,0 +1,15 @@
+.photo-exif-details {
+    background-color : mix($beige, white, 50%);
+    @include setViewportsPadding(
+        0 s(5) s(5) s(5),
+        0 s(5) s(5) s(5),
+        0 s(2) s(2) s(2),
+        0 s(2) s(2) s(2),
+        0 s(2) s(2) s(2),
+        0 s(1) s(1) s(1)
+    );
+
+    @include element("hr") {
+        margin-top: 0;
+    }
+}

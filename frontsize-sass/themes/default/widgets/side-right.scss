@@ -8,8 +8,10 @@
         border-top: 1px solid mix($beige, black, 95%);
     }
 
-    @include setFloatGridColumn(false, 8, 7, 7, 12, 12, 12);
-    @include setFloatGridOffset(4, 5, 5, 0, 0, 0);
+    @include box-sizing(border-box);
+
+    @include setFloatGridColumn(false, 8, 8, 7, 12, 12, 12);
+    @include setFloatGridOffset(4, 4, 5, 0, 0, 0);
 
     @include modifier("post") {
         padding:       s(2);
@@ -17,7 +19,7 @@
         margin-bottom: s(2);
         @include setViewportsPadding(
             s(5),
-            s(5),
+            s(4),
             s(2),
             s(2),
             s(2),

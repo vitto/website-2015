@@ -1,0 +1,12 @@
+/* TEAM */
+
+    Front-end engineer: Vittorio Vittori
+    Contact: me [at] vittoriovittori.com
+    Twitter: @vttrx
+    From:Forlì, Emilia-Romagna, Italy
+
+/* SITE */
+    Last update:2015-06-04 16:09:38
+    Language: English
+    Doctype: HTML5
+    IDE: Sublime Text, rsync, nodejs, sass
