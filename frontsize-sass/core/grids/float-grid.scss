@@ -954,7 +954,8 @@
     $tabletPortraitSteps  : $tabletLandscapeSteps,
     $mobileLandscapeSteps : 1,
     $mobilePortraitSteps  : 1,
-    $useBoxSizing         : true
+    $useBoxSizing         : true,
+    $paddingTop           : $vertical-padding
     ) {
 
     padding-top : $vertical-padding;

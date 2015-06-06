@@ -1,0 +1,53 @@
+.diy-card {
+    background-color: white;
+    @include box-shadow(0 2px 3px rgba(0,0,0,0.2));
+    @include setFloatGridContainer();
+    padding: 0;
+
+    @include element("photo") {
+        min-height: 300px;
+        @include setFloatGridColumn(true, 7, 7, 12, 12, 12, 12);
+        background-color: $font-color;
+        background-position: 50% 50%;
+        background-size: 100% 100%;
+        background-size: cover;
+    }
+
+    @include element("post") {
+        @include setFloatGridColumn(true, 5, 5, 12, 12, 12, 12);
+        padding: s(2) s(2) s(2) s(2);
+    }
+
+    @include element("title") {
+        margin-bottom: s(0.5);
+    }
+
+    @include element("title-info") {
+        margin-right: s(0.5);
+    }
+
+    @include element("title-infos") {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    @include element("hr") {
+        margin: s() 0 s() 0;
+    }
+
+    @include element("link") {
+        i {
+            margin-left: s(0.125);
+            color: mix($font-color, $beige, 15%);
+            @include transition(margin color, 0.125s ease-in-out);
+        }
+
+        &:hover {
+            i {
+                margin-left: s(0.25);
+                color: $font-color;
+            }
+        }
+    }
+}

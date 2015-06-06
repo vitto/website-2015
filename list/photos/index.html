@@ -1,0 +1,18 @@
+---
+title: Photos
+layout: cards
+---
+
+{% assign category = 'photo' %}
+
+<div class="cards">
+
+{% for post in site.posts %}
+    {% if category == post.category %}
+        <div>
+            {% include diy-card.html %}
+        </div>
+    {% endif %}
+{% endfor %}
+
+</div>

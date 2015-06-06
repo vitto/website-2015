@@ -1,0 +1,20 @@
+<div class="diy-card">
+    {% capture post_image %}/img/posts/{{ post.category }}/{{ post.title | downcase | replace: ' ','-' }}/image-cover.jpg{% endcapture %}
+
+    <div class="diy-card__photo" style="background-image:url({{ post_image }});"></div>
+    <div class="diy-card__post">
+        <h4 class="diy-card__title">{{ post.title }}</h4>
+        <div class="diy-card__title-infos">
+            <span class="diy-card__title-info"><i class="fa fa-recycle"></i> DIY craft</span>
+            <span class="diy-card__title-info"><i class="fa fa-clock-o"></i> {{ post.date | date: "%A %-d %B %Y" }}</span>
+        </div>
+        <hr class="diy-card__hr">
+        <p>
+            {{ post.excerpt | strip_html | strip_newlines | truncatewords:24 }}
+        </p>
+        <a class="diy-card__link" href="{{ post.url }}">
+            Go to the post
+            <i class="fa fa-play-circle"></i>
+        </a>
+    </div>
+</div>

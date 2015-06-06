@@ -1,0 +1,7 @@
+.cards {
+    @include setFloatGridContainer(1);
+
+    > div {
+        padding: 0 s(2) s(2) s(2);
+    }
+}
