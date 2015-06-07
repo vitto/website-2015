@@ -5,13 +5,27 @@ layout: cards
 
 {% assign category = 'photo' %}
 
-<div class="cards">
+<div class="photo-puzzle">
 
 {% for post in site.posts %}
     {% if category == post.category %}
-        <div>
-            {% include diy-card.html %}
-        </div>
+        {% capture width %}{% exiftag width, post.photo %}{% endcapture %}
+        {% capture height %}{% exiftag height, post.photo %}{% endcapture %}
+        {% capture widthNumber %}{{ width | times:1 }}{% endcapture %}
+        {% capture heightNumber %}{{ height | times:1 }}{% endcapture %}
+        {% capture size %}{{widthNumber | divided_by:heightNumber }}{% endcapture %}
+        {% capture sizeNumber %}{{ size | times:1 }}{% endcapture %}
+
+        {% if sizeNumber > '0' %}
+            <div class="photo-puzzle-grid">
+                {% include photo-puzzle.html %}
+            </div>
+        {% else %}
+            <div class="photo-puzzle-grid">
+                {% include photo-puzzle.html %}
+            </div>
+        {% endif %}
+
     {% endif %}
 {% endfor %}
 

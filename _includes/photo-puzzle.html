@@ -1,6 +1,6 @@
-<div class="diy-card">
+<div class="photo-puzzle">
 
-    {% capture post_image %}/img/posts/{{ post.category }}/{{ post.title | downcase | replace: ' ','-' }}/image-cover.jpg{% endcapture %}
+    {% capture post_image %}/img/posts/photos/{{ post.photo }}{% endcapture %}
 
     <div class="diy-card__photo" style="background-image:url({{ post_image }});"></div>
     <div class="diy-card__post">

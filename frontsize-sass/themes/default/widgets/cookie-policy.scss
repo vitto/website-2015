@@ -1,12 +1,18 @@
 .cookie-policy {
-    padding: 0 s();
     overflow: hidden;
-    height: 120px;
+    max-height: 150px;
+    $shadowMargin: 4px;
+    padding-left: $shadowMargin;
+    padding-right: $shadowMargin;
+    margin-left: -($shadowMargin);
+    margin-right: -($shadowMargin);
 
-    @include transition(height 0.25s ease-in-out);
+    @include transition(max-height margin, 0.475s ease-in-out);
 
     @include modifier("closed") {
-        height: 0;
+        max-height: 0;
+        margin-top: 0;
+        margin-bottom: 0;
     }
 
     @include element("area") {

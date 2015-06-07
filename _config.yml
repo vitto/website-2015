@@ -27,3 +27,7 @@ exclude:    [ bin, Gemfile, Gruntfile.js, frontsize.json, package.json, README.m
 timezone:   Europe/Rome
 keep_files: [ css, fonts, img ]
 
+
+exiftag:
+ sources:
+   - img/posts/photos
