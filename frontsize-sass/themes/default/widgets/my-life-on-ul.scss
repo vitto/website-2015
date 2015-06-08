@@ -5,7 +5,7 @@
     display: inline-block;
 
     &:hover .my-life-on-ul__button {
-        color: mix($font-color, $body-color, 10%);
+        color: $body-color;
         &:hover {
             color: $font-color;
         }

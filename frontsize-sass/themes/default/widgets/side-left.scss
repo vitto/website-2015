@@ -17,18 +17,10 @@
 
     @include setFloatGridColumn(false, 4, 4, 5, 12, 12, 12, 12, false, false);
 
-    /*
-    @include setFloatGridContainer();
 
-    @include element("header") {
-        @include setFloatGridColumn(true, 12, 12, 12, 6, 12, 12);
+    @include element("title-link") {
+        font-weight: 600;
     }
-
-    @include element("nav") {
-        @include setFloatGridColumn(true, 12, 12, 12, 6, 12, 12);
-    }
-
-    */
 
     @media #{$till-tablet-landscape} {
         position: static;

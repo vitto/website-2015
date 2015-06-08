@@ -1,0 +1,17 @@
+<div class="polaroid">
+
+    {% capture post_image %}/img/posts/photos/{{ post.photo }}{% endcapture %}
+
+
+    {% if post.background_position %}
+        <a href="{{ post.url }}" class="polaroid__picture" style="background-image:url({{ post_image }}); background-position:{{ post.background_position }};"></a>
+    {% else %}
+        <a href="{{ post.url }}" class="polaroid__picture" style="background-image:url({{ post_image }});"></a>
+    {% endif %}
+    <div class="polaroid__post">
+        <h4 class="polaroid__title"><a href="{{ post.url }}">{{ post.title }}</a></h4>
+        <div class="polaroid__title-infos">
+            <span class="polaroid__title-info"><i class="fa fa-clock-o"></i> <time datetime="{{ post.date }}">{{ post.date | date: "%A %-d %B %Y" }}</time></span>
+        </div>
+    </div>
+</div>

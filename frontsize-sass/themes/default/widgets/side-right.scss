@@ -37,4 +37,10 @@
         margin-bottom: s(2);
 
     }
+
+    @include modifier("image") {
+        background-position: 0% 0%;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
 }
