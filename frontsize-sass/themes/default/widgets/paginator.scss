@@ -14,8 +14,9 @@
         padding: s(0.5);
         min-width: 95px;
 
-        border: 1px solid mix($font-color, $beige, 15%);
+        border: 1px solid;
         color: $font-color;
+        border-color: mix($font-color, $beige, 15%);
         background-color: transparent;
 
         @include border-radius(s(0.25));
@@ -24,6 +25,17 @@
             color: mix($beige, white, 50%);
             border-color: $font-color;
             background-color: $font-color;
+        }
+
+        @include modifier("disabled") {
+            display: inline-block;
+            opacity: 0.5;
+            cursor: default;
+            &:hover {
+                color: $font-color;
+                border-color: mix($font-color, $beige, 15%);
+                background-color: transparent;
+            }
         }
     }
 

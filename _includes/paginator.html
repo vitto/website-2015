@@ -1,16 +1,50 @@
 <hr>
 
+{% assign category = page.category %}
+{% assign category_posts = site.posts | sort: 'date, category' %}
+{% capture category_post_url %}/list/{{category}}{% endcapture %}
+
+{% for post in category_posts %}
+    {% if category == post.category and post.url == page.url %}
+
+        {% assign curr_index = forloop.index | minus: 1 %}
+
+        {% assign prev_index = curr_index | minus: 1 %}
+        {% if category_posts[prev_index].category == category %}
+            {% assign prev_post_url = category_posts[prev_index].url %}
+        {% else %}
+            {% assign prev_post_url = '' %}
+        {% endif %}
+
+        {% assign next_index = curr_index | plus: 1 %}
+        {% if category_posts[next_index].category == category %}
+            {% assign next_post_url = category_posts[next_index].url %}
+        {% else %}
+            {% assign next_post_url = '' %}
+        {% endif %}
+
+    {% endif %}
+{% endfor %}
+
 <div class="paginator">
     <div class="paginator__row">
         <div>
             <div>
-                <a class="paginator__button" href="#">Previous</a>
+                {% if prev_post_url != '' %}
+                    <a class="paginator__button previous-post" href="{{ prev_post_url }}">Previous</a>
+                {% else %}
+                    <span class="paginator__button paginator__button--disabled">Previous</span>
+                {% endif %}
             </div>
             <div class="paginator__center">
-                <a class="paginator__button" href="#">All posts</a>
+                <a class="paginator__button category-posts" href="{{ category_post_url }}">All posts</a>
             </div>
             <div>
-                <a class="paginator__button" href="#">Next</a>
+                {% if next_post_url != '' %}
+                    <a class="paginator__button next-post" href="{{ next_post_url }}">Next</a>
+                {% else %}
+                    <span class="paginator__button paginator__button--disabled">Next</span>
+                {% endif %}
             </div>
         </div>
     </div>

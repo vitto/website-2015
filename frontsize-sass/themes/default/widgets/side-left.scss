@@ -23,7 +23,6 @@
     }
 
     @media #{$till-tablet-landscape} {
-        position: static;
-        height: auto;
+        display: none;
     }
 }

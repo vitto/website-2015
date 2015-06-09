@@ -5,7 +5,7 @@
     margin-bottom: s(2);
 
     @include modifier("small") {
-        $scale: 0.5;
+        $scale: 0.25;
         @include scaleBackgroundSize($scale, $width, $height);
         @include size($width, $height, $scale);
         margin-bottom: 0;

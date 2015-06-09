@@ -73,7 +73,7 @@ module.exports = function(grunt) {
                 atBegin : true
             },
             frontsize : {
-                files: [ '*.scss', '**/*.scss' ],
+                files: [ '*.scss', '**/*.scss', '*.js', '**/*.js' ],
                 tasks: [ 'frontsize' ]
             },
             frnAssets : {
@@ -177,7 +177,26 @@ module.exports = function(grunt) {
                 mediaQueries           : true
             },
             src: [ '<%= f.testCss %>' ]
-          }
+        },
+
+        uglify: {
+            js_minify: {
+              options: {
+                sourceMap: true,
+                sourceMapName: 'js/vitto.min.js.map'
+              },
+              files: {
+                'js/vitto.min.js': [
+                    'js/vendor/handlebars-v3.0.3.js',
+                    'js/vendor/jquery-2.1.4.min.js',
+                    'js/vendor/jquery.cookie-1.4.1.min.js',
+                    'js/src/cookie-policy.js',
+                    'js/src/paginator.js',
+                    'js/src/photo-zoom.js'
+                ]
+              }
+            }
+        }
     });
 
     require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
@@ -188,6 +207,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask('frontsize', [
         'sass:production',
+        'uglify:js_minify',
         'test',
         'minify'
     ]);

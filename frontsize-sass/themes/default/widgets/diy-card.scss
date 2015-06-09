@@ -20,6 +20,9 @@
 
     @include element("title") {
         margin-bottom: s(0.5);
+        a {
+            font-weight: 600;
+        }
     }
 
     @include element("title-info") {
@@ -39,7 +42,6 @@
     @include element("link") {
         i {
             margin-left: s(0.125);
-            color: mix($font-color, $beige, 15%);
             @include transition(margin color, 0.125s ease-in-out);
         }
 

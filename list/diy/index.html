@@ -1,13 +1,14 @@
 ---
-title: DIY works
+title: DIY crafts
 layout: cards
 ---
 
 {% assign category = 'diy' %}
+{% assign category_posts = site.posts | sort: 'date, category' %}
 
 <div class="cards">
 
-{% for post in site.posts %}
+{% for post in category_posts %}
     {% if category == post.category %}
         <div>
             {% include diy-card.html %}
@@ -16,3 +17,4 @@ layout: cards
 {% endfor %}
 
 </div>
+

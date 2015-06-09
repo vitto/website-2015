@@ -5,8 +5,9 @@
     top: 0;
     left: 0;
     right: 0;
+    @include asTable(s(0.5));
     background-color: $beige;
-    @include box-shadow(0 2px 2px rgba(0,0,0,0.2));
+    @include box-shadow(0 2px 1px rgba(0,0,0,0.1));
 
     @media #{$from-tablet-landscape} {
         display: none;
@@ -16,19 +17,14 @@
         margin-bottom: 0;
     }
 
-    @include setFloatGridContainer();
-
-    @include element("left") {
-        @include setFloatGridColumn(true, 12, 12, 12, 6, 3, 3);
-        @media #{$till-tablet-portrait} {
-            padding: s(0.5);
+    @include element("button") {
+        i {
+            font-size: s(1.25);
         }
     }
 
     @include element("right") {
-        @include setFloatGridColumn(true, 12, 12, 12, 6, 9, 9);
-        @media #{$till-tablet-portrait} {
-            padding: s(0.5);
-        }
+        width: 100%;
+        text-align: right;
     }
 }

@@ -3,6 +3,7 @@
     background-color: white;
 
     @include box-shadow(0 2px 4px rgba(0,0,0,0.2));
+
     @media #{$till-tablet-landscape} {
         @include box-shadow(none);
         border-top: 1px solid mix($beige, black, 95%);
@@ -39,8 +40,36 @@
     }
 
     @include modifier("image") {
-        background-position: 0% 0%;
+        position: relative;
+        background-position: 50% 50%;
         background-repeat: no-repeat;
         background-size: cover;
+        @include box-shadow(0 2px 4px rgba(0,0,0,0.2) inset);
+        border-top: 0;
+        @media #{$till-tablet-landscape} {
+            @include box-shadow(none);
+        }
+    }
+
+    @include element("nav") {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        @include box-sizing("border-box");
+        @media #{$from-tablet-landscape} {
+            display: none;
+        }
+
+        .side-left__header {
+            padding: 0 s();
+        }
+
+        .site-nav {
+            padding: s();
+            color: $beige;
+            a, i {
+                color: $beige;
+            }
+        }
     }
 }

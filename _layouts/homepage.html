@@ -3,7 +3,13 @@
     {% include head.html %}
     <body>
         {% include side-left.html %}
-        <div class="side-right side-right--image" style="background-image:url(/img/pages/{{ page.cover }});"></div>
+        <div class="side-right side-right--image" style="background-image:url(/img/pages/{{ page.cover }});">
+            <div class="side-right__nav">
+                {% include header.html %}
+                {% include site-nav.html %}
+            </div>
+        </div>
         {% include scripts.html %}
+        {% include template-photo-zoom.html %}
     </body>
 </html>

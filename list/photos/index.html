@@ -3,15 +3,16 @@ title: Photos
 layout: cards
 ---
 
-{% assign category = 'photo' %}
+{% assign category = 'photos' %}
+{% assign category_posts = site.posts | sort: 'date, category' %}
 
 <div class="polaroids">
 
-{% for post in site.posts %}
+{% for post in category_posts %}
     {% if category == post.category %}
-    <div>
-        {% include polaroid.html %}
-    </div>
+        <div>
+            {% include polaroid.html %}
+        </div>
     {% endif %}
 {% endfor %}
 

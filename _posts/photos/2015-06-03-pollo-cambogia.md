@@ -1,6 +1,6 @@
 ---
-category: photo
 layout: photo
+category: photos
 photo: pollo-cambogia.jpg
 title: Pollo
 location: Luang Prabang, Laos
