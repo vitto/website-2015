@@ -5,11 +5,15 @@ That's my personal web site i will publish soon.
 
 Install [Xcode][xcode]
 
+I've used Xcode `6.3.2`
+
 ```
 xcode-select --install
 ```
 
 Install [Homebrew][brew]
+
+I've used ruby `2.0.0` and brew `0.9.5`
 
 ```
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -29,17 +33,23 @@ export PATH="/usr/local/bin:$PATH"
 
 Install [NodeJS][nodejs]
 
+I've used node `0.12.0`
+
 ```
 brew install node
 ```
 
 Install [GruntJS][gruntjs] globally
 
+I've used grunt `0.4.5` and grunt cli `0.1.13`
+
 ```
 npm install -g grunt-cli
 ```
 
 Install [Jekyll][jekyll]
+
+I've used Jekyll version `2.4.0`
 
 ```
 gem install jekyll
@@ -56,6 +66,18 @@ jekyll serve --watch
 
 
 #How to run Frontsize
+
+Install node modules from the project's root folder
+
+```
+npm install
+```
+
+If it has permission problems try
+
+```
+sudo npm install
+```
 
 Run one of these commands from the root folder of the repo:
 
