@@ -13,7 +13,6 @@ bower.json
 # temp files to be ignored #
 *.ai
 *.bak
-src
 # css
 node_modules
 
